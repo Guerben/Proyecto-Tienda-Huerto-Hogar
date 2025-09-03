@@ -1,0 +1,7 @@
+{
+"Región Metropolitana": ["Santiago", "Providencia", "Puente Alto"],
+"Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué"],
+"Biobío": ["Concepción", "Coronel", "Talcahuano", "Nacimiento"],
+"Los Lagos": ["Puerto Montt"],
+"Araucanía": ["Villarica"]
+}
