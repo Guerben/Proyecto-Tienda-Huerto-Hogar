@@ -22,6 +22,16 @@ let isEditing = false;
 
 // Funciones ---------------------------------
 
+// Utilidad para escapar texto antes de insertarlo como HTML
+function escapeHTML(str) {
+    if (typeof str !== "string") return "";
+    return str.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
 // 1. Cargar productos desde localStorage
 
 function loadProducts() {
@@ -42,14 +52,14 @@ function renderProducts(products) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
+            <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}">
+            <h3>${escapeHTML(product.name)}</h3>
             <p class="price">$${product.price.toFixed(2)}</p>
-            <p><strong>Categoría:</strong> ${product.category}</p>
-            <p>${product.description || 'Sin descripción'}</p>
+            <p><strong>Categoría:</strong> ${escapeHTML(product.category)}</p>
+            <p>${product.description ? escapeHTML(product.description) : 'Sin descripción'}</p>
             <div class="buttons">
-                <button class="btn-edit" data-id="${product.id}">Editar</button>
-                <button class="btn-delete" data-id="${product.id}">Eliminar</button>
+                <button class="btn-edit" data-id="${escapeHTML(product.id)}">Editar</button>
+                <button class="btn-delete" data-id="${escapeHTML(product.id)}">Eliminar</button>
             </div>
         `;
         ProductsContainer.appendChild(productCard);
