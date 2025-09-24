@@ -1,0 +1,9 @@
+{
+    "C_Cpp.copilotHover": "disabled",
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.alternateGptPrompt.enabled": true,
+    "CodeGPT.apiKey": "DeepSeek"
+}

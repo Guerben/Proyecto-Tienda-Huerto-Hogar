@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administracion - Huerto Hogar</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de administracion</h1>
+        <nav>
+            <button id="btn-logout">Cerrar Sesion</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="product-list">
+            <h2>Productos</h2>
+            <button id="btn-add-product">+ Agregar Producto</button>
+            <div id="Products-container">
+                <!-- Aqui se cargaran los productos de forma dinamica-->
+            </div>
+        </section>
+
+        <section id="product-form" style="display: none;">
+            <h2 id="form-title">Agregar Nuevo Producto</h2>
+            <form id="form-product">
+                <input type="hidden" id="product-id">
+                <label>
+                    Nombre:
+                    <input type="text" id="product-name" required>
+                </label>
+                <label>
+                    Precio:
+                    <input type="number" id="product-price" step="0.01" required>
+                </label>
+                <label>
+                    Imagen (URL):
+                    <input type="url" id="product-image" required>
+                </label>
+                <label>
+                    Categoria:
+                    <select id="product-category" required>
+                        <option value="">-- Selecionar --</option>
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Fresh">Fresh</option>
+                        <option value=""></option>
+                    </select>
+                </label>
+                <label>
+                    Descripcion:
+                    <textarea id="product-description" rows="3"></textarea>
+                </label>
+                <div class="form-buttons">
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="btn-cancel">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="/Projecto_semestral/Tienda_Huerta_Hogar/admin/admin.js"></script>
+    
+</body>
+</html>
