@@ -1,82 +1,273 @@
 /* Reset básico */
 body {
-margin: 0;
-padding: 0;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F7F7F7;
+}
+
+/* barra de navegacion*/
+.fixed-top {
+    padding: 2rem;
+    transition: .5s;
+}
+
+.top-bar {
+    height: 45px;
+    border-bottom: 1px solid rgba(0, 0, 0, .07);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.navbar .navbar-nav .nav-link {
+    padding: 25px 15px;
+    color: #555555;
+    font-weight: 500;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #3CB815;
+}
+
+#rock {
+  color: #3CB815;     
+}
+.fin {
+   color: #F65005;
+}
+
+/* Contenedor principal - CORREGIDO */
+.container {
+    margin: 0 auto;
+    padding: 120px 20px 40px; /* Reducido y responsive */
+    position: relative; /* Cambiado de fixed a relative */
+    max-width: 1200px;
+    min-height: 100vh;
 }
 
 /* Contenedor del registro */
 .registro-container {
-max-width: 400px;
-margin: 40px auto;
-padding: 30px;
-background-color: #ffffff;
-border-radius: 10px;
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  max-width: 500px; /* Aumentado para formulario más ancho */
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
 /* Logo placeholder */
 .logo-placeholder {
-width: 100px;
-height: 100px;
-background-color: #dcdcdc;
-border-radius: 50%;
-margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 /* Título de empresa */
 h2 {
-font-size: 1.8rem;
-color: #333;
+  font-size: 1.8rem;
+  color: #2E8B57;
 }
 
-/* Título del formulario */
-.registro-container h4 {
-color: #444;
-}
+
 
 /* Inputs y selects */
 .form-control,
 .form-select {
-border-radius: 5px;
-border: 1px solid #ccc;
-margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #3CB815;
+  box-shadow: 0 0 0 0.2rem rgba(60, 184, 21, 0.25);
+}
+
+/* Input groups para contraseñas */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group .form-control {
+  margin-bottom: 0;
+}
+
+/* Botones de mostrar/ocultar contraseña */
+#togglePassword,
+#toggleConfirmPassword {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #f8f9fa;
+  border-color: #ccc;
+  color: #2E8B57;
+  padding: 0.375rem 0.75rem;
+  min-width: 45px;
+  height: 38px; /* Altura fija para que coincida con el input */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#togglePassword:hover,
+#toggleConfirmPassword:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+  color: #495057;
+}
+
+#togglePassword:focus,
+#toggleConfirmPassword:focus {
+  box-shadow: none;
+  border-color: #3CB815;
+  background-color: #e9ecef;
+}
+
+/* Asegurar que el input group se vea correctamente */
+.input-group .form-control:focus {
+  border-color: #3CB815;
+  box-shadow: 0 0 0 0.2rem rgba(60, 184, 21, 0.25);
+  z-index: 3;
+}
+
+.input-group .form-control:focus + .btn {
+  border-color: #3CB815;
+}
+
+/* Mensajes de validación */
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
 }
 
 /* Botón */
 .btn-primary {
-background-color: #6c757d;
-border: none;
+  background-color: #2E8B57;
+  border: none;
 }
 
 .btn-primary:hover {
-background-color: #5a6268;
+  background-color: #5a6268; /* Color más oscuro en hover */
 }
 
 /* Enlaces */
 a {
-font-size: 0.9rem;
-color: #555;
+  font-size: 0.9rem;
+  color: #2E8B57;
 }
 
 a:hover {
-text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Navbar responsive - Solo en móviles */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+  }
+}
+
+/* Navbar en pantallas grandes - Sin fondo */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 0;
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Ajuste para evitar superposición del navbar desplegado */
+@media (max-width: 991px) {
+  .container {
+    padding-top: 140px; /* Más espacio cuando el navbar está desplegado */
+  }
 }
 
 /* Responsive ajustes */
+@media (max-width: 768px) {
+  .container {
+    padding: 100px 15px 20px; /* Menos padding en tablets */
+  }
+  
+  .registro-container {
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 450px;
+  }
+}
+
 @media (max-width: 576px) {
-.registro-container {
-    margin: 20px;
+  .container {
+    padding: 90px 10px 15px; /* Mínimo padding en móviles */
+  }
+  
+  .registro-container {
+    margin: 15px auto;
     padding: 20px;
-}
+    max-width: 100%;
+  }
 
-h2 {
+  h2 {
     font-size: 1.5rem;
-}
+  }
 
-.logo-placeholder {
+  .logo-placeholder {
     width: 80px;
     height: 80px;
+  }
+  
+  /* Ajustes para navbar en móviles */
+  .navbar .navbar-nav .nav-link {
+    padding: 15px 10px;
+  }
 }
+
+/* Ajuste adicional para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .container {
+    padding: 80px 5px 10px;
+  }
+  
+  .registro-container {
+    padding: 15px;
+  }
+  
+  /* Ajustes para formularios en móviles muy pequeños */
+  .form-control,
+  .form-select {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
 }

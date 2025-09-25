@@ -12,6 +12,18 @@
     spinner();
     
     
+    //para que funcione el mas productos
+    document.querySelectorAll('a[href^="#tab-"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const selector = a.getAttribute('href');
+    const trigger = document.querySelector(`.nav [href="${selector}"]`);
+    if (trigger) {
+      e.preventDefault();
+      new bootstrap.Tab(trigger).show();
+    }
+  });
+});
+//fin menu desplegable
     // Initiate the wowjs
     new WOW().init();
 
@@ -32,8 +44,7 @@
             }
         }
     });
-    
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -74,6 +85,7 @@
         }
     });
 
+   
     
 })(jQuery);
 

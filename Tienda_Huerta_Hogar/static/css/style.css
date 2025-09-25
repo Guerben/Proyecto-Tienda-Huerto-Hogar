@@ -90,6 +90,7 @@
 
 /*** Navbar ***/
 .fixed-top {
+    padding: 2rem;
     transition: .5s;
 }
 
@@ -118,6 +119,33 @@
 .navbar .navbar-nav .nav-link.active {
     color: var(--dark);
 }
+.breadcrumb-item{
+    font-size: 16px;
+    color: #555555;
+}
+/** codigo agregado**/
+#search-results {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item h5 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/** Fin codigo agregado**/
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav {
