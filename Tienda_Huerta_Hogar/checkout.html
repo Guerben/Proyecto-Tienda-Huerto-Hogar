@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - HuertoHogar</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/cart.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt me-2"></i>Av. España Nº8, Santiago chile</small>
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>Huertohogar.info@gmail.com</small>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small>Seguinos en:</small>
+                <a class="text-body ms-3" href="https://www.facebook.com/login/?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                <a class="text-body ms-3" href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                <a class="text-body ms-3" href="https://+56958007645"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+            <a href="/index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h1 class="fw-bold text-primary m-0">Huerto<span class="text-secondary">Hogar</span></h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="/index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="/about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="/product.html" class="nav-item nav-link">Productos</a>
+                    <a href="/blog.html" class="nav-item nav-link">Blog</a>
+                    <a href="/contact.html" class="nav-item nav-link">Contactos</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Checkout Section -->
+    <div class="container-fluid py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center mb-5">Finalizar Compra</h2>
+                </div>
+            </div>
+            
+            <div class="row g-5">
+                <!-- Formulario de Checkout -->
+                <div class="col-lg-8">
+                    <div class="checkout-form">
+                        <!-- Información de Envío -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fa fa-shipping-fast me-2"></i>Información de Envío</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">Nombre *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Apellido *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Teléfono *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Dirección *</label>
+                                        <input type="text" class="form-control" id="address" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="city" class="form-label">Ciudad *</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="region" class="form-label">Región *</label>
+                                        <select class="form-select" id="region" required>
+                                            <option value="">Seleccionar región</option>
+                                            <option value="metropolitana">Región Metropolitana</option>
+                                            <option value="valparaiso">Valparaíso</option>
+                                            <option value="ohiggins">O'Higgins</option>
+                                            <option value="maule">Maule</option>
+                                            <option value="biobio">Biobío</option>
+                                            <option value="araucania">Araucanía</option>
+                                            <option value="los-rios">Los Ríos</option>
+                                            <option value="los-lagos">Los Lagos</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="postalCode" class="form-label">Código Postal</label>
+                                        <input type="text" class="form-control" id="postalCode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Método de Envío -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fa fa-truck me-2"></i>Método de Envío</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="shipping-options">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="shipping" id="standardShipping" value="standard" checked>
+                                        <label class="form-check-label" for="standardShipping">
+                                            <strong>Envío Estándar (3-5 días hábiles)</strong>
+                                            <span class="text-muted d-block">Gratis en compras sobre $15.000</span>
+                                        </label>
+                                        <span class="shipping-price float-end" id="standardPrice">$0</span>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="shipping" id="expressShipping" value="express">
+                                        <label class="form-check-label" for="expressShipping">
+                                            <strong>Envío Express (1-2 días hábiles)</strong>
+                                            <span class="text-muted d-block">Entrega rápida y segura</span>
+                                        </label>
+                                        <span class="shipping-price float-end" id="expressPrice">$3.500</span>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shipping" id="pickupShipping" value="pickup">
+                                        <label class="form-check-label" for="pickupShipping">
+                                            <strong>Retiro en Tienda</strong>
+                                            <span class="text-muted d-block">Av. España Nº8, Santiago</span>
+                                        </label>
+                                        <span class="shipping-price float-end" id="pickupPrice">$0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Método de Pago -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fa fa-credit-card me-2"></i>Método de Pago</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-methods">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="payment" id="creditCard" value="credit" checked>
+                                        <label class="form-check-label" for="creditCard">
+                                            <i class="fa fa-credit-card me-2"></i>Tarjeta de Crédito/Débito
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="radio" name="payment" id="transfer" value="transfer">
+                                        <label class="form-check-label" for="transfer">
+                                            <i class="fa fa-university me-2"></i>Transferencia Bancaria
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment" id="cash" value="cash">
+                                        <label class="form-check-label" for="cash">
+                                            <i class="fa fa-money-bill me-2"></i>Pago Contra Entrega
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Formulario de Tarjeta -->
+                                <div id="cardForm" class="mt-4">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="cardNumber" class="form-label">Número de Tarjeta *</label>
+                                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="expiryDate" class="form-label">Fecha de Vencimiento *</label>
+                                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA" maxlength="5">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="cvv" class="form-label">CVV *</label>
+                                            <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="3">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="cardName" class="form-label">Nombre en la Tarjeta *</label>
+                                            <input type="text" class="form-control" id="cardName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cupón de Descuento -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fa fa-ticket-alt me-2"></i>Cupón de Descuento</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="couponCode" placeholder="Ingresa tu código de cupón">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-outline-primary w-100" id="applyCoupon">Aplicar</button>
+                                    </div>
+                                </div>
+                                <div id="couponMessage" class="mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del Pedido -->
+                <div class="col-lg-4">
+                    <div class="order-summary">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fa fa-shopping-cart me-2"></i>Resumen del Pedido</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="orderItems">
+                                    <!-- Los items se cargarán aquí -->
+                                </div>
+                                
+                                <hr>
+                                
+                                <div class="order-totals">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Subtotal:</span>
+                                        <span id="subtotal">$0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Envío:</span>
+                                        <span id="shippingCost">$0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2" id="discountRow" style="display: none;">
+                                        <span>Descuento:</span>
+                                        <span id="discountAmount" class="text-success">-$0</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Total:</strong>
+                                        <strong id="totalAmount">$0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button class="btn btn-primary btn-lg w-100" id="placeOrderBtn">
+                                <i class="fa fa-lock me-2"></i>Realizar Pedido
+                            </button>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <small class="text-muted">
+                                <i class="fa fa-shield-alt me-1"></i>
+                                Tu información está protegida con encriptación SSL
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/wow/wow.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/waypoints/waypoints.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/static/js/main.js"></script>
+    <!-- Carrito de Compras -->
+    <script src="/static/js/cart.js"></script>
+    <!-- Checkout -->
+    <script src="/static/js/checkout.js"></script>
+</body>
+</html>

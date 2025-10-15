@@ -1,9 +1,20 @@
-/********** Template CSS **********/
+
 :root {
     --primary: #3CB815;
     --secondary: #F65005;
     --light: #F7F8FC;
     --dark: #111111;
+}
+.text-green {
+    color: var(--primary);
+}
+.text-green-secondary {
+    color: var(--secondary);
+}
+.btn-green {
+    background-color:#2E8B57;
+    color: #FFFFFF;
+    
 }
 
 .back-to-top {
@@ -90,6 +101,7 @@
 
 /*** Navbar ***/
 .fixed-top {
+    padding: 2rem;
     transition: .5s;
 }
 
@@ -105,6 +117,7 @@
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
+    
 }
 
 .navbar .navbar-nav .nav-link {
@@ -118,6 +131,34 @@
 .navbar .navbar-nav .nav-link.active {
     color: var(--dark);
 }
+.breadcrumb-item{
+    font-size: 16px;
+    color: #555555;
+}
+
+/** codigo agregado**/
+#search-results {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item h5 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/** Fin codigo agregado**/
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav {
