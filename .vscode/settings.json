@@ -1,3 +1,13 @@
 {
+<<<<<<< HEAD
     "liveServer.settings.port": 5501
+=======
+    "C_Cpp.copilotHover": "disabled",
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.alternateGptPrompt.enabled": true,
+    "CodeGPT.apiKey": "DeepSeek"
+>>>>>>> 2968e1eeb1611c1d576fc074bb66c8d5d3d94373
 }
