@@ -1,5 +1,3 @@
-// ===== HISTORIAL DE PEDIDOS =====
-
 class OrderHistory {
     constructor() {
         this.orders = [];
@@ -13,46 +11,39 @@ class OrderHistory {
         this.displayOrders();
     }
 
-    // Cargar pedidos
     loadOrders() {
         this.orders = JSON.parse(localStorage.getItem('huertohogar_orders')) || [];
         this.filteredOrders = [...this.orders];
     }
 
-    // Vincular eventos
     bindEvents() {
-        // Filtros
-        document.getElementById('filterBtn').addEventListener('click', () => {
+        document.getElementById('filterBtn')?.addEventListener('click', () => {
             this.applyFilters();
         });
 
-        // Enter en filtros
-        document.getElementById('statusFilter').addEventListener('change', () => {
+        document.getElementById('statusFilter')?.addEventListener('change', () => {
             this.applyFilters();
         });
 
-        document.getElementById('dateFrom').addEventListener('change', () => {
+        document.getElementById('dateFrom')?.addEventListener('change', () => {
             this.applyFilters();
         });
 
-        document.getElementById('dateTo').addEventListener('change', () => {
+        document.getElementById('dateTo')?.addEventListener('change', () => {
             this.applyFilters();
         });
     }
 
-    // Aplicar filtros
     applyFilters() {
         const statusFilter = document.getElementById('statusFilter').value;
         const dateFrom = document.getElementById('dateFrom').value;
         const dateTo = document.getElementById('dateTo').value;
 
         this.filteredOrders = this.orders.filter(order => {
-            // Filtro por estado
             if (statusFilter && order.status !== statusFilter) {
                 return false;
             }
 
-            // Filtro por fecha
             const orderDate = new Date(order.date);
             if (dateFrom) {
                 const fromDate = new Date(dateFrom);
@@ -74,21 +65,30 @@ class OrderHistory {
         this.displayOrders();
     }
 
-    // Mostrar pedidos
     displayOrders() {
         const ordersList = document.getElementById('ordersList');
         const noOrdersMessage = document.getElementById('noOrdersMessage');
+        const loadingMessage = document.getElementById('loadingMessage');
 
-        if (this.filteredOrders.length === 0) {
+        if (!ordersList || !noOrdersMessage) return;
+
+        if (loadingMessage) {
+            loadingMessage.style.display = 'none';
+        }
+        
+        // Aca aplicamos el filtro a filteredOrders antes de verificar la longitud
+        const validOrders = this.filteredOrders.filter(order => order.order && order.order.items && order.order.items.length > 0);
+
+        if (validOrders.length === 0) {
             ordersList.innerHTML = '';
-            noOrdersMessage.style.display = 'block';
+            // Muestra el mensaje de "No tienes pedidos aún" si no hay órdenes válidas
+            noOrdersMessage.style.display = 'block'; 
             return;
         }
 
         noOrdersMessage.style.display = 'none';
 
-        // Ordenar por fecha (más recientes primero)
-        const sortedOrders = this.filteredOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sortedOrders = validOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         ordersList.innerHTML = sortedOrders.map(order => `
             <div class="card mb-3 order-card" data-order-id="${order.id}">
@@ -102,17 +102,17 @@ class OrderHistory {
                             <span class="badge ${this.getStatusBadgeClass(order.status)}">${this.getStatusText(order.status)}</span>
                         </div>
                         <div class="col-md-2">
-                            <small class="text-muted">${order.items.length} producto${order.items.length > 1 ? 's' : ''}</small>
+                            <small class="text-muted">${order.order.items.length} producto${order.order.items.length > 1 ? 's' : ''}</small>
                         </div>
                         <div class="col-md-2">
                             <strong>$${order.order.total.toLocaleString()}</strong>
                         </div>
                         <div class="col-md-3 text-end">
-                            <button class="btn btn-outline-primary btn-sm me-2" onclick="orderHistory.viewOrderDetails('${order.id}')">
+                            <button class="btn btn-outline-primary btn-sm me-2" onclick="window.orderHistory.viewOrderDetails('${order.id}')">
                                 <i class="fa fa-eye me-1"></i>Ver Detalles
                             </button>
                             ${order.status === 'entregado' ? `
-                                <button class="btn btn-outline-success btn-sm" onclick="orderHistory.reorder('${order.id}')">
+                                <button class="btn btn-outline-success btn-sm" onclick="window.orderHistory.reorder('${order.id}')">
                                     <i class="fa fa-redo me-1"></i>Volver a Pedir
                                 </button>
                             ` : ''}
@@ -123,12 +123,13 @@ class OrderHistory {
         `).join('');
     }
 
-    // Ver detalles del pedido
     viewOrderDetails(orderId) {
         const order = this.orders.find(o => o.id === orderId);
         if (!order) return;
 
         const modalContent = document.getElementById('orderDetailContent');
+        if (!modalContent) return;
+
         modalContent.innerHTML = `
             <div class="row">
                 <div class="col-md-6">
@@ -181,7 +182,7 @@ class OrderHistory {
                         </tr>
                     </thead>
                     <tbody>
-                        ${order.items.map(item => `
+                        ${order.order.items.map(item => `
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -233,52 +234,52 @@ class OrderHistory {
             </div>
         `;
 
-        // Guardar ID del pedido para reordenar
         document.getElementById('reorderBtn').onclick = () => {
             this.reorder(orderId);
         };
 
-        const modal = new bootstrap.Modal(document.getElementById('orderDetailModal'));
-        modal.show();
+        const orderDetailModalElement = document.getElementById('orderDetailModal');
+        if (orderDetailModalElement) {
+            const modal = new bootstrap.Modal(orderDetailModalElement);
+            modal.show();
+        }
     }
 
-    // Volver a pedir
     reorder(orderId) {
         const order = this.orders.find(o => o.id === orderId);
         if (!order) return;
 
         if (window.cart) {
-            // Limpiar carrito actual
             window.cart.clearCart();
             
-            // Agregar productos del pedido
-            order.items.forEach(item => {
-                for (let i = 0; i < item.quantity; i++) {
-                    window.cart.addItem({
-                        id: item.id,
-                        name: item.name,
-                        price: item.price,
-                        originalPrice: item.originalPrice,
-                        image: item.image
-                    });
-                }
+            // Usamos order.order.items en lugar de order.items
+            order.order.items.forEach(item => { 
+                // Se asume que item tiene la estructura necesaria para addItem
+                window.cart.addItem({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    originalPrice: item.originalPrice,
+                    image: item.image
+                }, item.quantity);
             });
 
-            // Mostrar mensaje de éxito
             this.showMessage('Productos agregados al carrito', 'success');
             
-            // Cerrar modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('orderDetailModal'));
-            modal.hide();
+            const orderDetailModalElement = document.getElementById('orderDetailModal');
+            if (orderDetailModalElement) {
+                const modalInstance = bootstrap.Modal.getInstance(orderDetailModalElement);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
+            }
             
-            // Redirigir al checkout
             setTimeout(() => {
                 window.location.href = 'checkout.html';
             }, 1000);
         }
     }
 
-    // Formatear fecha
     formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('es-ES', {
@@ -290,7 +291,6 @@ class OrderHistory {
         });
     }
 
-    // Obtener clase del badge de estado
     getStatusBadgeClass(status) {
         const classes = {
             'confirmado': 'bg-warning',
@@ -301,7 +301,6 @@ class OrderHistory {
         return classes[status] || 'bg-secondary';
     }
 
-    // Obtener texto del estado
     getStatusText(status) {
         const texts = {
             'confirmado': 'Confirmado',
@@ -312,7 +311,6 @@ class OrderHistory {
         return texts[status] || status;
     }
 
-    // Obtener texto del método de envío
     getShippingMethodText(method) {
         const texts = {
             'standard': 'Envío Estándar',
@@ -322,7 +320,6 @@ class OrderHistory {
         return texts[method] || method;
     }
 
-    // Obtener texto del método de pago
     getPaymentMethodText(method) {
         const texts = {
             'credit': 'Tarjeta de Crédito/Débito',
@@ -332,7 +329,6 @@ class OrderHistory {
         return texts[method] || method;
     }
 
-    // Mostrar mensaje
     showMessage(message, type) {
         const alert = document.createElement('div');
         alert.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
@@ -350,7 +346,7 @@ class OrderHistory {
     }
 }
 
-// Inicializar historial de pedidos cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    window.orderHistory = new OrderHistory();
+    // Aseguramos que la clase se inicie y esté disponible globalmente
+    window.orderHistory = new OrderHistory(); 
 });

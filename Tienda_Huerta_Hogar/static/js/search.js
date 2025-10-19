@@ -1,5 +1,3 @@
-// ===== SISTEMA DE BÚSQUEDA =====
-
 class SearchSystem {
     constructor() {
         this.products = [];
@@ -12,9 +10,10 @@ class SearchSystem {
         this.bindEvents();
     }
 
-    // Cargar productos
+    // Cargamos los productos
     loadProducts() {
         this.products = [
+           
             {
                 id: 'tomates-cherry',
                 name: 'Tomates Cherry',
@@ -138,14 +137,14 @@ class SearchSystem {
         ];
     }
 
-    // Vincular eventos
+    // Vinculamos los eventos
     bindEvents() {
         const searchInput = document.getElementById('searchInput');
         const searchBtn = document.getElementById('searchBtn');
         const searchResults = document.getElementById('searchResults');
 
         if (searchInput) {
-            // Búsqueda en tiempo real
+            // Busqueda en tiempo real
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.trim();
                 if (query.length >= 2) {
@@ -163,7 +162,7 @@ class SearchSystem {
                 }
             });
 
-            // Ocultar resultados al hacer clic fuera
+            // Ocultamos resultados al hacer clic fuera
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.search-container')) {
                     this.hideResults();
@@ -179,7 +178,7 @@ class SearchSystem {
         }
     }
 
-    // Realizar búsqueda
+    // Realiza una busqueda
     search(query) {
         const results = this.products.filter(product => {
             const searchText = `${product.name} ${product.description} ${product.tags.join(' ')}`.toLowerCase();
@@ -190,7 +189,7 @@ class SearchSystem {
         this.displayResults(results);
     }
 
-    // Mostrar resultados
+    // Pinta en pantalla los resultados
     displayResults(results) {
         const searchResults = document.getElementById('searchResults');
         if (!searchResults) return;
@@ -219,7 +218,7 @@ class SearchSystem {
                 </div>
             `).join('');
 
-            // Agregar eventos a los resultados
+            // Agrega eventos a los resultados
             searchResults.querySelectorAll('.search-result-item').forEach((item, index) => {
                 item.addEventListener('click', () => {
                     this.goToProduct(results[index]);
@@ -230,7 +229,7 @@ class SearchSystem {
         searchResults.style.display = 'block';
     }
 
-    // Ocultar resultados
+    // para ocultar los resultados
     hideResults() {
         const searchResults = document.getElementById('searchResults');
         if (searchResults) {
@@ -238,40 +237,39 @@ class SearchSystem {
         }
     }
 
-    // Ir al producto
+    
     goToProduct(product) {
-        window.location.href = `product-detail.html?id=${product.id}`;
+      
+        window.location.href = `/product_detail.html?id=${product.id}`;
     }
-
-    // Realizar búsqueda completa
     performSearch() {
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             const query = searchInput.value.trim();
             if (query.length >= 2) {
-                // Redirigir a página de resultados de búsqueda
-                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+             
+                window.location.href = `/search-results.html?q=${encodeURIComponent(query)}`;
             }
         }
     }
 
-    // Buscar productos por categoría
+    // Buscara productos por categoría
     searchByCategory(category) {
         return this.products.filter(product => product.category === category);
     }
 
-    // Obtener productos populares
+    // Obtenemos los  productos populares
     getPopularProducts() {
         return this.products.slice(0, 6);
     }
 
-    // Obtener productos en oferta
+    // Obtiene los productos en oferta
     getProductsOnSale() {
         return this.products.filter(product => product.originalPrice > product.price);
     }
 }
 
-// Inicializar sistema de búsqueda
+// Inicializa el sistema de búsqueda
 document.addEventListener('DOMContentLoaded', function() {
     window.searchSystem = new SearchSystem();
 });

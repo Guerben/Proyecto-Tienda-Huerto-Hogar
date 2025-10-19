@@ -5,6 +5,19 @@
     --light: #F7F8FC;
     --dark: #111111;
 }
+.text-primary {
+    color: var(--primary) !important;
+}
+.text-secondary {
+    color: var(--secondary) !important;
+}
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
 
 /* Contador */
 #cart-counter {
@@ -14,7 +27,7 @@
     line-height: 18px;
     padding: 0 6px;
     border-radius: 9px;
-    background-color: #dc3545 !important;
+    background-color: #F65005 !important;
     color: white;
     font-weight: bold;
     position: absolute;
@@ -51,7 +64,7 @@
 }
 
 #cartModal .modal-header {
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background: linear-gradient(135deg,  #3CB815, #F65005);
     color: white;
     border-radius: 15px 15px 0 0;
     border: none;
@@ -102,13 +115,13 @@
 }
 
 .cart-item .btn-outline-danger {
-    border-color: #dc3545;
-    color: #dc3545;
+    border-color: #F65005;
+    color: #F65005;
 }
 
 .cart-item .btn-outline-danger:hover {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #F65005;
+    border-color: #F65005;
     color: white;
 }
 
@@ -131,7 +144,7 @@
 
 /* Botón de checkout */
 #checkout-btn {
-    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    background: linear-gradient(135deg,  #3CB815, #F65005);
     border: none;
     border-radius: 25px;
     padding: 12px 30px;
@@ -144,7 +157,7 @@
     box-shadow: 0 5px 15px #2E8B57;
 }
 
-/* Botón de vaciar carrito */
+/* Botón de vacio carrito */
 #clear-cart-btn {
     border-radius: 20px;
     padding: 8px 20px;
@@ -268,7 +281,7 @@
 }
 
 .checkout-form .card-header {
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background: linear-gradient(135deg,  #3CB815, #F65005);
     color: white;
     border-radius: 10px 10px 0 0 !important;
     border: none;
@@ -282,8 +295,7 @@
 }
 
 .shipping-options .form-check:hover {
-    border-color: #0d6efd;
-    background-color: #f8f9fa;
+    border-color:  #3CB815,;
 }
 
 .shipping-options .form-check-input:checked + .form-check-label {
@@ -315,7 +327,7 @@
 }
 
 .order-summary .card-header {
-    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    background: linear-gradient(135deg, #3CB815, #F65005);
     color: white;
     border-radius: 10px 10px 0 0 !important;
     border: none;
@@ -344,7 +356,7 @@
 }
 
 
-/* =ESTILOS PARA BÚSQUEDA */
+
 
 .search-container {
     position: relative;
@@ -367,7 +379,7 @@
     transform: translateX(5px);
 }
 
-/* ===== ESTILOS PARA DETALLES DE PRODUCTO ===== */
+/* ESTILOS PARA DETALLES DE PRODUCTO  */
 .product-details {
     margin-top: 2rem;
 }
@@ -391,7 +403,7 @@
 
 .thumbnail-images .img-thumbnail:hover,
 .thumbnail-images .img-thumbnail.active {
-    border-color: #0d6efd;
+    border-color: #3CB815;
     transform: scale(1.1);
 }
 
@@ -423,7 +435,7 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* ===== ESTILOS RESPONSIVOS ADICIONALES ===== */
+
 
 @media (max-width: 768px) {
     .search-container input {
@@ -448,7 +460,7 @@
     }
 }
 
-/* ===== ANIMACIONES ADICIONALES ===== */
+/*  ANIMACIONES ADICIONALES */
 
 @keyframes fadeInUp {
     from {
@@ -487,25 +499,25 @@
     border: none;
 }
 
-/* ===== ESTILOS PARA FORMULARIOS ===== */
+/* ESTILOS PARA FORMULARIOS  */
 
 .form-control:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    border-color:  #3CB815;
+    box-shadow: 0 0 0 0.2rem #2E8B57;;
 }
 
 .form-select:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    border-color: #3CB815;;
+    box-shadow: 0 0 0 0.2rem #2E8B57;
 }
 
 .is-invalid {
-    border-color: #dc3545;
+    border-color: #F65005;
 }
 
 .invalid-feedback {
     display: block;
-    color: #dc3545;
+    color: #F65005;
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }

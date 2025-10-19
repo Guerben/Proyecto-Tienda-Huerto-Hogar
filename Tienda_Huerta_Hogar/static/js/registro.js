@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== FUNCIONALIDAD DEL FORMULARIO DE REGISTRO =====
+
     document.getElementById('signupForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -23,21 +23,35 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Guardando usuario en localStorage
+        // Guardando usuario en localStorage (Lista maestra)
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         usuarios.push(formData);
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
+        
+        
+        localStorage.setItem('user_email', formData.email);
+        localStorage.setItem('user_password', formData.password); 
+        localStorage.setItem('user_region', formData.region);
+        localStorage.setItem('user_comuna', formData.comuna);
+        
+        // Inicializara los datos estéticos (título/bio) con un valor por defecto
+        localStorage.setItem('user_title', 'Nuevo Miembro HuertoHogar');
+        localStorage.setItem('user_bio', '¡Acabo de unirme a la comunidad!');
+        
+        // Guardara  el objeto completo para la sesión de login
+        localStorage.setItem('usuarioActual', JSON.stringify(formData));
+     
+        
         // Mostrando mensaje de éxito
-        showFlashMessage('Registro exitoso! Bienvenido a HuertoHogar.', 'success');
+        showFlashMessage('Registro exitoso! Bienvenido a HuertoHogar. Iniciando sesión...', 'success');
         
         // Limpiando formulario
         this.reset();
         submitButton.classList.remove('loading');
 
-        // Redirigiendo al login después de 2 segundos
+        // Redirigiendo al inicio (simulando que está logueado)
         setTimeout(() => {
-            window.location.href = '/login.html';
+            window.location.href = '/index.html';
         }, 2000);
     });
 
@@ -65,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
 
-    // ===== FUNCIONALIDAD DEL NAVBAR MÓVIL =====
     
     // Inicializando todos los tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -91,12 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
                 }
-                // No prevenira el comportamiento por defecto del enlace
+               
                 // event.preventDefault() 
             });
         });
 
-        // Cerrando navbar al hacer clic fuera de él
+        // Cerrando navbar al haciendo clic fuera de él
         document.addEventListener('click', function(event) {
             const isClickInsideNav = navbarCollapse.contains(event.target);
             const isClickOnToggler = navbarToggler.contains(event.target);
@@ -107,8 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== VALIDACIONES DEL FORMULARIO DE REGISTRO =====
-    
+
     // Validación en tiempo real del nombre
     const nombreInput = document.querySelector('#nombre');
     if (nombreInput) {
@@ -192,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== FUNCIONES AUXILIARES =====
+
 
     // Mostrando error en un campo
     function showFieldError(field, message) {
@@ -273,11 +285,10 @@ document.addEventListener('DOMContentLoaded', function() {
             showFieldError(comunaField, 'Por favor, selecciona una comuna');
             isValid = false;
         }
-        //retorno la validacion
+        //retorno  de la validacion
         return isValid;
     }
 
-    // ===== FUNCIONALIDAD ADICIONAL =====
 
     // Limpiando formulario
     function clearForm() {
@@ -321,4 +332,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-

@@ -1,4 +1,3 @@
-
 class ShoppingCart {
     constructor() {
         this.items = this.loadCart();
@@ -10,23 +9,27 @@ class ShoppingCart {
         this.bindEvents();
     }
 
-    // Cargar carrito desde localStorage
+    // Carga el carrito desde localStorage
     loadCart() {
         const savedCart = localStorage.getItem('huertohogar_cart');
         return savedCart ? JSON.parse(savedCart) : [];
     }
 
-    // Guardar carrito en localStorage
+    // Guarda el carrito en localStorage
     saveCart() {
         localStorage.setItem('huertohogar_cart', JSON.stringify(this.items));
     }
 
-    // Agregar producto al carrito
-    addItem(product) {
+    // Agrega producto al carrito 
+    addItem(product, quantityToAdd = 1) { 
+        
+        const qty = parseInt(quantityToAdd);
+        if (isNaN(qty) || qty <= 0) return;
+        
         const existingItem = this.items.find(item => item.id === product.id);
         
         if (existingItem) {
-            existingItem.quantity += 1;
+            existingItem.quantity += qty; 
         } else {
             this.items.push({
                 id: product.id,
@@ -34,60 +37,66 @@ class ShoppingCart {
                 price: product.price,
                 originalPrice: product.originalPrice,
                 image: product.image,
-                quantity: 1
+                quantity: qty 
             });
         }
         
         this.saveCart();
         this.updateCartUI();
-        this.showAddToCartMessage(product.name);
+        
+        // Mensaje de éxito 
+        const message = qty === 1 
+            ? `${product.name} agregado al carrito` 
+            : `${product.name} agregado al carrito (${qty} unidades)`;
+        this.showAddToCartMessage(message);
     }
 
-    // Remover producto del carrito
+    // Remueve el producto del carrito
     removeItem(productId) {
         this.items = this.items.filter(item => item.id !== productId);
         this.saveCart();
         this.updateCartUI();
     }
 
-    // Actualizar cantidad de un producto
+    // Actualiza la cantidad de un producto
     updateQuantity(productId, quantity) {
         const item = this.items.find(item => item.id === productId);
         if (item) {
-            if (quantity <= 0) {
+            const newQuantity = parseInt(quantity);
+            if (isNaN(newQuantity) || newQuantity <= 0) {
                 this.removeItem(productId);
             } else {
-                item.quantity = quantity;
+                item.quantity = newQuantity;
                 this.saveCart();
                 this.updateCartUI();
             }
         }
     }
 
-    // Limpiar carrito
+    // Limpia el carrito
     clearCart() {
         this.items = [];
         this.saveCart();
         this.updateCartUI();
     }
 
-    // Calcular total
+    // Calcula el total
     getTotal() {
         return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
     }
 
-    // Calcular cantidad total de items
+    // Calcula la cantidad total de items
     getTotalItems() {
         return this.items.reduce((total, item) => total + item.quantity, 0);
     }
 
-    // Actualizar interfaz del carrito
+    // Actualiza la interfaz del carrito
     updateCartUI() {
         this.updateCartCounter();
         this.updateCartModal();
     }
 
-    // Actualizar contador del carrito en navbar
+    // Actualiza el contador del carrito en navbar
     updateCartCounter() {
         const cartCounter = document.getElementById('cart-counter');
         const totalItems = this.getTotalItems();
@@ -98,7 +107,7 @@ class ShoppingCart {
         }
     }
 
-    // Actualizar modal del carrito
+    // Actualiza el modal del carrito
     updateCartModal() {
         const cartItemsContainer = document.getElementById('cart-items');
         const cartTotal = document.getElementById('cart-total');
@@ -144,52 +153,63 @@ class ShoppingCart {
         }
     }
 
-    // Mostrar mensaje de producto agregado
-    showAddToCartMessage(productName) {
-        // Crear toast notification
+    // Muestra un mensaje de producto agregado 
+    showAddToCartMessage(message) {
         const toast = document.createElement('div');
+        const container = document.querySelector('.toast-container') || document.body; 
+        
         toast.className = 'toast align-items-center text-white bg-success border-0 position-fixed top-0 end-0 m-3';
         toast.style.zIndex = '9999';
         toast.innerHTML = `
             <div class="d-flex">
                 <div class="toast-body">
                     <i class="fa fa-check-circle me-2"></i>
-                    ${productName} agregado al carrito
+                    ${message}
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
             </div>
         `;
 
-        document.body.appendChild(toast);
+        container.appendChild(toast);
         const bsToast = new bootstrap.Toast(toast);
         bsToast.show();
 
-        // Remover el toast después de que se oculte
         toast.addEventListener('hidden.bs.toast', () => {
             toast.remove();
         });
     }
 
-    // Vincular eventos
+    // Vincula los eventos
     bindEvents() {
         // Eventos para botones "Añadir al carrito"
         document.addEventListener('click', (e) => {
-            if (e.target.closest('.add-to-cart-btn')) {
+            const addToCartBtn = e.target.closest('.add-to-cart-btn');
+            if (addToCartBtn) {
                 e.preventDefault();
-                const productElement = e.target.closest('.product-item');
-                if (productElement) {
+                // Si viene de un producto relacionado con data-product
+                if (addToCartBtn.dataset.product) {
+                    try {
+                        const productData = JSON.parse(addToCartBtn.dataset.product);
+                        this.addItem(productData, 1);
+                    } catch (error) {
+                        console.error('Error al parsear datos del producto relacionado:', error);
+                    }
+                }
+                // Si viene de la vista de productos de lista (usando addProductFromElement)
+                const productElement = addToCartBtn.closest('.product-item');
+                if (productElement && !addToCartBtn.dataset.product) {
                     this.addProductFromElement(productElement);
                 }
             }
         });
 
-        // Evento para abrir modal del carrito
+        /*// Evento para abrir modal del carrito
         document.addEventListener('click', (e) => {
             if (e.target.closest('.cart-icon')) {
                 e.preventDefault();
                 this.openCartModal();
             }
-        });
+        }); */
 
         // Evento para limpiar carrito
         document.addEventListener('click', (e) => {
@@ -208,7 +228,7 @@ class ShoppingCart {
         });
     }
 
-    // Agregar producto desde elemento HTML
+    // Agrega  producto desde elemento HTML
     addProductFromElement(productElement) {
         const nameElement = productElement.querySelector('a.d-block.h5');
         const priceElement = productElement.querySelector('.text-primary');
@@ -222,7 +242,7 @@ class ShoppingCart {
         const originalPriceText = originalPriceElement ? originalPriceElement.textContent.trim() : null;
         const image = imageElement ? imageElement.src : '';
 
-        // Extraer precio numérico
+        // Extrae precio numérico
         const price = this.extractPrice(priceText);
         const originalPrice = originalPriceText ? this.extractPrice(originalPriceText) : null;
 
@@ -236,49 +256,46 @@ class ShoppingCart {
             image: image
         };
 
-        this.addItem(product);
+        this.addItem(product, 1);
     }
 
-    // Extraer precio numérico del texto
+    // Extrae precio numérico del texto
     extractPrice(priceText) {
-        const match = priceText.match(/[\d.,]+/);
+        // Asumiendo formato de peso chileno sin decimales y con punto como separador de miles.
+        const match = priceText.match(/[\d.]+/);
         if (match) {
-            return parseFloat(match[0].replace(/[.,]/g, '').replace(/(\d+)(\d{3})$/, '$1.$2'));
+            return parseInt(match[0].replace(/\./g, ''));
         }
         return null;
     }
 
-    // Generar ID único para producto
+    // Genera un ID único para producto
     generateProductId(name) {
         return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     }
 
-    // Abrir modal del carrito
-    openCartModal() {
-        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
-        cartModal.show();
-    }
 
-    // Proceder al checkout
+    // Procede al checkout
     proceedToCheckout() {
         if (this.items.length === 0) {
             alert('Tu carrito está vacío');
             return;
         }
 
-        // Redirigir a la página de checkout
-        window.location.href = 'checkout.html';
+        // Redirige a la página de checkout
+        window.location.href = '/checkout.html';
     }
 }
 
-// Inicializar carrito cuando el DOM esté listo
+// Inicializa el carrito cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+    // Definimos el objeto global 'cart' para que sea accesible desde onclick y otros scripts
     window.cart = new ShoppingCart();
 });
 
 // Función global para agregar productos (para compatibilidad)
-function addToCart(productData) {
+function addToCart(productData, quantity = 1) { 
     if (window.cart) {
-        window.cart.addItem(productData);
+        window.cart.addItem(productData, quantity);
     }
 }

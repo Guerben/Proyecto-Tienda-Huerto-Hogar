@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,16 +63,19 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="/index.html" class="nav-item nav-link">Inicio</a>
-                    <a href="/about.html" class="nav-item nav-link">Nosotros</a>
                     <a href="/product.html" class="nav-item nav-link active">Productos</a>
-                    <a href="/blog.html" class="nav-item nav-link">Blog</a>
                     <a href="/contact.html" class="nav-item nav-link">Contactos</a>
+                    <a href="/blog.html" class="nav-item nav-link">Blog</a>
                 </div>
                 <!--Busqueda-->
                 <div class="d-none d-lg-flex ms-2">
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                        <small class="fa fa-search text-body"></small>
-                    </a>
+                     <div class="search-container position-relative">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar productos..." style="width: 200px;">
+                        <button class="btn btn-outline-primary position-absolute end-0 top-0" id="searchBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <div id="searchResults" class="search-results position-absolute w-100 bg-white border rounded shadow-lg" style="top: 100%; z-index: 1000; display: none;"></div>
+                    </div>
                     <!--Login-->
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="/login.html">
                     
@@ -133,16 +135,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Tomates cherry</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=tomates-cherry">Tomates cherry</a>
                                     <span class="text-primary me-1">$3.990 el kg</span>
                                     <span class="text-body text-decoration-line-through">$5.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=tomates-cherry"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=tomates-cherry"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -154,16 +156,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Pimientos tricolores</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=pimientos-tricolores">Pimientos tricolores</a>
                                     <span class="text-primary me-1">$1.690 UN</span>
                                     <span class="text-body text-decoration-line-through">$2.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=pimientos-tricolores"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=pimientos-tricolores"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -175,16 +177,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Ajis</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=ajis">Ajis</a>
                                     <span class="text-primary me-1">$5.490 1kg</span>
                                     <span class="text-body text-decoration-line-through">$6000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=ajis"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=ajis"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -196,16 +198,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Zanahorias</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=zanahorias">Zanahorias</a>
                                     <span class="text-primary me-1">$1.190 1KG</span>
                                     <span class="text-body text-decoration-line-through">$2.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=zanahorias"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=zanahorias"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -217,16 +219,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Pepinos Alaska</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=pepinos-alaska">Pepinos Alaska</a>
                                     <span class="text-primary me-1">$1.090 UN</span>
                                     <span class="text-body text-decoration-line-through">$2.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=pepinos-alaska"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=pepinos-alaska"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -238,16 +240,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Tomates</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=tomates-rojos">Tomates</a>
                                     <span class="text-primary me-1">$1.950 1kg</span>
                                     <span class="text-body text-decoration-line-through">$2.100</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalle</a>
+                                        <a class="text-body" href="product_detail.html?id=tomates-rojos"><i class="fa fa-eye text-primary me-2"></i>Ver detalle</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=tomates-rojos"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -259,16 +261,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Papas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=papas-frescas">Papas</a>
                                     <span class="text-primary me-1">$690 1kg</span>
                                     <span class="text-body text-decoration-line-through">$800</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=papas-frescas"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=papas-frescas"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -280,16 +282,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Espinacas-Americana</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=espinacas">Espinacas-Americana</a>
                                     <span class="text-primary me-1">$1.190 500gr</span>
                                     <span class="text-body text-decoration-line-through">$1.500</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=espinacas"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=espinacas"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -308,16 +310,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Peras</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=peras">Peras</a>
                                     <span class="text-primary me-1">$1.050 1kg</span>
                                     <span class="text-body text-decoration-line-through">$1.690</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=peras"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=peras"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -329,16 +331,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Piñas Frescas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=pinas-frescas">Piñas Frescas</a>
                                     <span class="text-primary me-1">$2.490 UN</span>
                                     <span class="text-body text-decoration-line-through">$3.600</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=pinas-frescas"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=pinas-frescas"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -350,16 +352,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Manzanas-fuji</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=manzanas-fuji">Manzanas-fuji</a>
                                     <span class="text-primary me-1">$2.000 1kg</span>
                                     <span class="text-body text-decoration-line-through">$2.300</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=manzanas-fuji"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=manzanas-fuji"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -371,16 +373,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Frutillas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=frutillas">Frutillas</a>
                                     <span class="text-primary me-1">$2.100 1kg</span>
                                     <span class="text-body text-decoration-line-through">$3.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=frutillas"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=frutillas"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -392,16 +394,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Naranjas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=naranjas">Naranjas</a>
                                     <span class="text-primary me-1">$1.100 1kg</span>
                                     <span class="text-body text-decoration-line-through">$2.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=naranjas"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=naranjas"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -413,16 +415,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Uvas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=uvas-negras">Uvas</a>
                                     <span class="text-primary me-1">$2.000 1kg</span>
                                     <span class="text-body text-decoration-line-through">$2.300</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=uvas-negras"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=uvas-negras"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -434,16 +436,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescos</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Kiwi</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=kiwi-fresco">Kiwi</a>
                                     <span class="text-primary me-1">$3.990 1kg</span>
                                     <span class="text-body text-decoration-line-through">$4.190</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=kiwi-fresco"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=kiwi-fresco"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -455,22 +457,22 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Frescas</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Platanos Ecuatorianas</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=platanos-ecuatorianos">Platanos Ecuatorianas</a>
                                     <span class="text-primary me-1">$1.450 1kg</span>
                                     <span class="text-body text-decoration-line-through">$2.000</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=platanos-ecuatorianos"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=platanos-ecuatorianos"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Mas productos</a>
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="#tab-3">Mas productos</a>
                         </div>
                     </div>
                 </div>
@@ -483,16 +485,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Leche Descremada Sabor Chocolate</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=leche-chocolate">Leche Descremada Sabor Chocolate</a>
                                     <span class="text-primary me-1">$1.099 200ML</span>
                                     <span class="text-body text-decoration-line-through">$1.300</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=leche-chocolate"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=leche-chocolate"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -504,16 +506,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Leche Enteral Natural 1 LT</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=leche-natural">Leche Enteral Natural 1 LT</a>
                                     <span class="text-primary me-1">$1.000 UN</span>
                                     <span class="text-body text-decoration-line-through">$1.350</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=leche-natural"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=leche-natural"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -525,16 +527,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Pack Yoghurt Batido Colun 12 X 125 GR</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=yogurt-batido">Pack Yoghurt Batido Colun 12 X 125 GR</a>
                                     <span class="text-primary me-1">$2.600</span>
                                     <span class="text-body text-decoration-line-through">$2.999</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=yogurt-batido"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=yogurt-batido"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -546,16 +548,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Queso Ranco Laminado Colun 500 GR</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=queso-ranco">Queso Ranco Laminado Colun 500 GR</a>
                                     <span class="text-primary me-1">$7.000 UN</span>
                                     <span class="text-body text-decoration-line-through">$7.250</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=queso-ranco"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=queso-ranco"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -567,16 +569,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Mantequilla Untable con Sal 200 GR</a>
-                                    <span class="text-primary me-1">$3.3500 UN</span>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=mantequilla-untable">Mantequilla Untable con Sal 200 GR</a>
+                                    <span class="text-primary me-1">$3.350 UN</span>
                                     <span class="text-body text-decoration-line-through">$3.650</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=mantequilla-untable"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=mantequilla-untable"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -588,16 +590,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Mantequilla con Sal Soprole 250 GR</a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=mantequilla-soprole">Mantequilla con Sal Soprole 250 GR</a>
                                     <span class="text-primary me-1">$2.000 UN</span>
                                     <span class="text-body text-decoration-line-through">$2.990</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=mantequilla-soprole"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=mantequilla-soprole"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -609,16 +611,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Miel de Abeja 1KG de nuestra huerta  </a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=miel-organica">Miel de Abeja 1KG de nuestra huerta  </a>
                                     <span class="text-primary me-1">$8.550</span>
                                     <span class="text-body text-decoration-line-through">$9.340</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
+                                        <a class="text-body" href="product_detail.html?id=miel-organica"><i class="fa fa-eye text-primary me-2"></i>Ver detalles</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=miel-organica"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -630,16 +632,16 @@
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">Nuevo</div>
                                 </div>
                                 <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Saborizante en Polvo Milo Sabor Chocolate </a>
+                                    <a class="d-block h5 mb-2" href="product_detail.html?id=milo-saborizante">Saborizante en Polvo Milo Sabor Chocolate </a>
                                     <span class="text-primary me-1">$5.990 500gr</span>
                                     <span class="text-body text-decoration-line-through">$6.200</span>
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver detalles </a>
+                                        <a class="text-body" href="product_detail.html?id=milo-saborizante"><i class="fa fa-eye text-primary me-2"></i>Ver detalles </a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
+                                        <a class="text-body" href="product_detail.html?id=milo-saborizante"><i class="fa fa-shopping-bag text-primary me-2"></i>Añadir al carrito</a>
                                     </small>
                                 </div>
                             </div>
@@ -759,7 +761,9 @@
                     <a class="btn btn-link" href="/contact.html">Contactos</a>
                     <a class="btn btn-link" href="/blog.html"> Blog</a>
                     <a class="btn btn-link" href="/product.html">Productos</a>
+                    <a class="btn btn-link" href="/perfil.html">Perfil</a>
                     <a class="btn btn-link" href="/login.html">Iniciar Sesión</a>
+
                     
                 </div>
                <!-- <div class="col-lg-3 col-md-6">

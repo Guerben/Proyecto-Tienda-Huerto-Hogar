@@ -1,5 +1,3 @@
-// ===== SISTEMA DE CHECKOUT =====
-
 class CheckoutSystem {
     constructor() {
         this.cart = null;
@@ -16,19 +14,15 @@ class CheckoutSystem {
         this.calculateShipping();
     }
 
-    // Cargar carrito
     loadCart() {
-        if (window.cart) {
+        if (window.cart && window.cart.items.length > 0) {
             this.cart = window.cart;
         } else {
-            // Si no hay carrito, redirigir al inicio
             window.location.href = '/index.html';
         }
     }
 
-    // Vincular eventos
     bindEvents() {
-        // Métodos de envío
         document.querySelectorAll('input[name="shipping"]').forEach(radio => {
             radio.addEventListener('change', () => {
                 this.calculateShipping();
@@ -36,40 +30,33 @@ class CheckoutSystem {
             });
         });
 
-        // Métodos de pago
         document.querySelectorAll('input[name="payment"]').forEach(radio => {
             radio.addEventListener('change', () => {
                 this.togglePaymentForm();
             });
         });
 
-        // Aplicar cupón
         document.getElementById('applyCoupon').addEventListener('click', () => {
             this.applyCoupon();
         });
 
-        // Realizar pedido
         document.getElementById('placeOrderBtn').addEventListener('click', () => {
             this.placeOrder();
         });
 
-        // Formatear número de tarjeta
         document.getElementById('cardNumber').addEventListener('input', (e) => {
             this.formatCardNumber(e.target);
         });
 
-        // Formatear fecha de vencimiento
         document.getElementById('expiryDate').addEventListener('input', (e) => {
             this.formatExpiryDate(e.target);
         });
 
-        // Solo números en CVV
         document.getElementById('cvv').addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/\D/g, '');
         });
     }
 
-    // Calcular costo de envío
     calculateShipping() {
         const selectedShipping = document.querySelector('input[name="shipping"]:checked');
         const subtotal = this.cart.getTotal();
@@ -86,13 +73,11 @@ class CheckoutSystem {
                 break;
         }
 
-        // Actualizar precios mostrados
         document.getElementById('standardPrice').textContent = subtotal >= 15000 ? 'Gratis' : '$2.500';
         document.getElementById('expressPrice').textContent = '$3.500';
         document.getElementById('pickupPrice').textContent = 'Gratis';
     }
 
-    // Actualizar resumen del pedido
     updateOrderSummary() {
         if (!this.cart) return;
 
@@ -100,7 +85,6 @@ class CheckoutSystem {
         const subtotal = this.cart.getTotal();
         const total = subtotal + this.shippingCost - this.discount;
 
-        // Mostrar items
         orderItems.innerHTML = this.cart.items.map(item => `
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <div class="d-flex align-items-center">
@@ -115,12 +99,10 @@ class CheckoutSystem {
             </div>
         `).join('');
 
-        // Actualizar totales
         document.getElementById('subtotal').textContent = `$${subtotal.toLocaleString()}`;
         document.getElementById('shippingCost').textContent = this.shippingCost === 0 ? 'Gratis' : `$${this.shippingCost.toLocaleString()}`;
         document.getElementById('totalAmount').textContent = `$${total.toLocaleString()}`;
 
-        // Mostrar/ocultar descuento
         if (this.discount > 0) {
             document.getElementById('discountRow').style.display = 'flex';
             document.getElementById('discountAmount').textContent = `-$${this.discount.toLocaleString()}`;
@@ -129,10 +111,8 @@ class CheckoutSystem {
         }
     }
 
-    // Aplicar cupón
     applyCoupon() {
         const couponInput = document.getElementById('couponCode');
-        const couponMessage = document.getElementById('couponMessage');
         const code = couponInput.value.trim().toUpperCase();
 
         if (!code) {
@@ -140,7 +120,6 @@ class CheckoutSystem {
             return;
         }
 
-        // Cupones válidos
         const validCoupons = {
             'BIENVENIDO10': { type: 'percentage', value: 10, description: '10% de descuento' },
             'FRESCO15': { type: 'percentage', value: 15, description: '15% de descuento' },
@@ -172,7 +151,6 @@ class CheckoutSystem {
         }
     }
 
-    // Mostrar mensaje de cupón
     showCouponMessage(message, type) {
         const couponMessage = document.getElementById('couponMessage');
         couponMessage.innerHTML = `<div class="alert alert-${type} alert-sm mb-0">${message}</div>`;
@@ -182,7 +160,6 @@ class CheckoutSystem {
         }, 5000);
     }
 
-    // Alternar formulario de pago
     togglePaymentForm() {
         const selectedPayment = document.querySelector('input[name="payment"]:checked');
         const cardForm = document.getElementById('cardForm');
@@ -194,14 +171,12 @@ class CheckoutSystem {
         }
     }
 
-    // Formatear número de tarjeta
     formatCardNumber(input) {
         let value = input.value.replace(/\D/g, '');
         value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
         input.value = value;
     }
 
-    // Formatear fecha de vencimiento
     formatExpiryDate(input) {
         let value = input.value.replace(/\D/g, '');
         if (value.length >= 2) {
@@ -210,7 +185,6 @@ class CheckoutSystem {
         input.value = value;
     }
 
-    // Realizar pedido
     placeOrder() {
         if (!this.validateForm()) {
             return;
@@ -218,13 +192,11 @@ class CheckoutSystem {
 
         const orderData = this.collectOrderData();
         
-        // Mostrar loading
         const btn = document.getElementById('placeOrderBtn');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i>Procesando...';
         btn.disabled = true;
 
-        // Simular procesamiento
         setTimeout(() => {
             this.processOrder(orderData);
             btn.innerHTML = originalText;
@@ -232,7 +204,6 @@ class CheckoutSystem {
         }, 2000);
     }
 
-    // Validar formulario
     validateForm() {
         const requiredFields = [
             'firstName', 'lastName', 'email', 'phone', 'address', 'city', 'region'
@@ -250,7 +221,6 @@ class CheckoutSystem {
             }
         });
 
-        // Validar email
         const email = document.getElementById('email');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email.value && !emailRegex.test(email.value)) {
@@ -258,7 +228,6 @@ class CheckoutSystem {
             isValid = false;
         }
 
-        // Validar método de pago
         const selectedPayment = document.querySelector('input[name="payment"]:checked');
         if (selectedPayment.value === 'credit') {
             const cardFields = ['cardNumber', 'expiryDate', 'cvv', 'cardName'];
@@ -280,7 +249,6 @@ class CheckoutSystem {
         return isValid;
     }
 
-    // Recopilar datos del pedido
     collectOrderData() {
         return {
             customer: {
@@ -315,9 +283,7 @@ class CheckoutSystem {
         };
     }
 
-    // Procesar pedido
     processOrder(orderData) {
-        // Guardar pedido en localStorage
         const orders = JSON.parse(localStorage.getItem('huertohogar_orders')) || [];
         const orderId = 'ORD-' + Date.now();
         
@@ -328,17 +294,15 @@ class CheckoutSystem {
             ...orderData
         };
 
-        orders.push(order);
+        // Usamos el metodo unshift() para poner una orden nueva al inicio de la lista
+        orders.unshift(order); 
         localStorage.setItem('huertohogar_orders', JSON.stringify(orders));
 
-        // Limpiar carrito
         this.cart.clearCart();
 
-        // Mostrar confirmación
         this.showOrderConfirmation(orderId);
     }
 
-    // Mostrar confirmación del pedido
     showOrderConfirmation(orderId) {
         const modal = document.createElement('div');
         modal.className = 'modal fade';
@@ -352,8 +316,8 @@ class CheckoutSystem {
                         <p class="mb-4"><strong>Número de pedido:</strong> ${orderId}</p>
                         <p class="text-muted mb-4">Te enviaremos un email de confirmación con todos los detalles.</p>
                         <div class="d-flex gap-2 justify-content-center">
-                            <a href="/index.html" class="btn btn-primary">Continuar Comprando</a>
-                            <a href="/order-history.html" class="btn btn-outline-primary">Ver Pedidos</a>
+                            <a href="/product.html" class="btn btn-primary">Continuar Comprando</a>
+                            <a href="/order_history.html" class="btn btn-outline-primary">Ver Pedidos</a>
                         </div>
                     </div>
                 </div>
@@ -369,7 +333,6 @@ class CheckoutSystem {
         });
     }
 
-    // Mostrar mensaje
     showMessage(message, type) {
         const alert = document.createElement('div');
         alert.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
@@ -387,7 +350,6 @@ class CheckoutSystem {
     }
 }
 
-// Inicializar checkout cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     new CheckoutSystem();
 });

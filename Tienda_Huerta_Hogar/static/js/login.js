@@ -1,4 +1,4 @@
-// ===== FUNCIONALIDAD DE LOGIN =====
+
 const loginForm = document.querySelector('#loginForm');
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -18,8 +18,25 @@ loginForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // Guardo solo el usuario logueado en localStorage
+    // Guarda el objeto completo del usuario logueado
     localStorage.setItem('usuarioActual', JSON.stringify(validuser));
+    
+   
+    localStorage.setItem('user_name', validuser.nombre);
+    localStorage.setItem('user_email', validuser.email);
+    localStorage.setItem('user_password', validuser.password); 
+    localStorage.setItem('user_region', validuser.region);
+    localStorage.setItem('user_comuna', validuser.comuna);
+    
+    // Si no existen, inicializara datos estéticos (título/bio) con un valor por defecto
+    if (!localStorage.getItem('user_title')) {
+        localStorage.setItem('user_title', 'Miembro Activo HuertoHogar');
+    }
+    if (!localStorage.getItem('user_bio')) {
+        localStorage.setItem('user_bio', '¡Qué bueno estar de vuelta!');
+    }
+   
+    
     alert('Login exitoso!');
     alert(`Bienvenido ${validuser.nombre}!`);
     window.location.href = '/index.html';
@@ -29,12 +46,21 @@ loginForm.addEventListener('submit', (e) => {
 const logoutBtn = document.querySelector('#logoutBtn');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
+        // Al desloguearse, limpiara el usuario actual y los datos de perfil para que no aparezcan en el perfil
         localStorage.removeItem('usuarioActual');
+        localStorage.removeItem('user_name');
+        localStorage.removeItem('user_email');
+        localStorage.removeItem('user_password');
+        localStorage.removeItem('user_region');
+        localStorage.removeItem('user_comuna');
+        localStorage.removeItem('user_title');
+        localStorage.removeItem('user_bio');
+        localStorage.removeItem('profilePicUrl'); 
+        
         window.location.href = '/login.html';
     });
 }
 
-// ===== FUNCIONALIDAD DEL NAVBAR MÓVIL =====
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa todos los tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -60,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
                 }
-                // No previene el comportamiento por defecto del enlace
-                // event.preventDefault() 
+                
             });
         });
 
@@ -76,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== VALIDACIONES ADICIONALES DEL FORMULARIO =====
+   
     
     // Valida en tiempo real del email
     const emailInput = document.querySelector('#email');
@@ -112,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ===== FUNCIONES AUXILIARES =====
+
 
 // Muestra error en un campo
 function showFieldError(field, message) {
@@ -132,8 +157,6 @@ function hideFieldError(field) {
         existingError.remove();
     }
 }
-
-// ===== FUNCIONALIDAD ADICIONAL =====
 
 // Muestra/oculta contraseña
 function togglePasswordVisibility() {
