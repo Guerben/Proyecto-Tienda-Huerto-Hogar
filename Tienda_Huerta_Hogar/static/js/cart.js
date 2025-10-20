@@ -21,15 +21,15 @@ class ShoppingCart {
     }
 
     // Agrega producto al carrito 
-    addItem(product, quantityToAdd = 1) { 
-        
+    addItem(product, quantityToAdd = 1) {
+
         const qty = parseInt(quantityToAdd);
         if (isNaN(qty) || qty <= 0) return;
-        
+
         const existingItem = this.items.find(item => item.id === product.id);
-        
+
         if (existingItem) {
-            existingItem.quantity += qty; 
+            existingItem.quantity += qty;
         } else {
             this.items.push({
                 id: product.id,
@@ -37,16 +37,16 @@ class ShoppingCart {
                 price: product.price,
                 originalPrice: product.originalPrice,
                 image: product.image,
-                quantity: qty 
+                quantity: qty
             });
         }
-        
+
         this.saveCart();
         this.updateCartUI();
-        
+
         // Mensaje de éxito 
-        const message = qty === 1 
-            ? `${product.name} agregado al carrito` 
+        const message = qty === 1
+            ? `${product.name} agregado al carrito`
             : `${product.name} agregado al carrito (${qty} unidades)`;
         this.showAddToCartMessage(message);
     }
@@ -100,7 +100,7 @@ class ShoppingCart {
     updateCartCounter() {
         const cartCounter = document.getElementById('cart-counter');
         const totalItems = this.getTotalItems();
-        
+
         if (cartCounter) {
             cartCounter.textContent = totalItems;
             cartCounter.style.display = totalItems > 0 ? 'inline' : 'none';
@@ -156,8 +156,8 @@ class ShoppingCart {
     // Muestra un mensaje de producto agregado 
     showAddToCartMessage(message) {
         const toast = document.createElement('div');
-        const container = document.querySelector('.toast-container') || document.body; 
-        
+        const container = document.querySelector('.toast-container') || document.body;
+
         toast.className = 'toast align-items-center text-white bg-success border-0 position-fixed top-0 end-0 m-3';
         toast.style.zIndex = '9999';
         toast.innerHTML = `
@@ -288,13 +288,13 @@ class ShoppingCart {
 }
 
 // Inicializa el carrito cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Definimos el objeto global 'cart' para que sea accesible desde onclick y otros scripts
     window.cart = new ShoppingCart();
 });
 
 // Función global para agregar productos (para compatibilidad)
-function addToCart(productData, quantity = 1) { 
+function addToCart(productData, quantity = 1) {
     if (window.cart) {
         window.cart.addItem(productData, quantity);
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,12 @@
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <style>
         :root {
             --primary-color: #3CB815;
-            --text-color:  #F65005;
+            --text-color: #F65005;
             --bg-color: #f4f7f6;
             --card-bg: #fff;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -28,24 +29,27 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-top: 100px; 
+            padding-top: 100px;
             margin: 0;
         }
 
         .navbar-light .navbar-nav .nav-link.active {
             color: var(--primary-color) !important;
         }
+
         #rock {
             font-family: 'Playfair Display', serif;
-            color:  #3CB815;
+            color: #3CB815;
         }
+
         .fin {
             color: var(--text-color);
         }
+
         .top-bar {
             background: #f8f9fa;
             border-bottom: 1px solid #eee;
-            padding-top: 5px; 
+            padding-top: 5px;
             padding-bottom: 5px;
         }
 
@@ -56,8 +60,9 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            width: 100%; 
+            width: 100%;
         }
+
         .profile-card {
             background-color: var(--card-bg);
             border-radius: 12px;
@@ -67,17 +72,17 @@
             width: 100%;
         }
 
-       
+
         .profile-photo-area {
-            position: relative; 
+            position: relative;
             width: 150px;
             height: 150px;
             margin: 0 auto 5px auto;
         }
 
         #profile-picture {
-            width: 100%; 
-            height: 100%; 
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             object-position: center;
@@ -108,12 +113,15 @@
             transition: background-color 0.3s;
             margin: 5px 5px 0 5px;
         }
+
         .icon-button:hover {
             background-color: #555555;
         }
+
         .hidden {
             display: none !important;
         }
+
         .small-button {
             padding: 6px 10px;
         }
@@ -132,6 +140,7 @@
             align-items: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
         .photo-overlay-button i {
             font-size: 0.8em;
         }
@@ -142,17 +151,20 @@
             align-items: center;
             margin-bottom: 10px;
         }
+
         .detail-item .icon {
             color: var(--primary-color);
             margin-right: 10px;
             font-size: 1.2em;
         }
+
         .detail-item p {
             font-weight: 600;
             margin-right: 5px;
             margin-bottom: 0;
             min-width: 90px;
         }
+
         .detail-item span {
             font-weight: 500;
         }
@@ -170,27 +182,33 @@
         .profile-details-edit input[type="email"],
         .profile-details-edit textarea,
         .profile-details-edit select,
-        .profile-details-edit input[type="password"] { 
-            padding: 12px; 
-            margin-bottom: 0; 
+        .profile-details-edit input[type="password"] {
+            padding: 12px;
+            margin-bottom: 0;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
+
         .profile-details-edit .mb-3 {
-             margin-bottom: 20px; 
+            margin-bottom: 20px;
         }
+
         .profile-details-edit label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
+
         /*  Aseguro que el input-group use Flexbox y alinee correctamente */
         .profile-details-edit .input-group {
-            margin-bottom: 20px; 
-            display: flex; /* asegurarando el comportamiento Flex */
-            align-items: stretch; /* Aseguro que el botón y el input tengan la misma altura */
+            margin-bottom: 20px;
+            display: flex;
+            /* asegurarando el comportamiento Flex */
+            align-items: stretch;
+            /* Aseguro que el botón y el input tengan la misma altura */
         }
+
         .profile-details-edit .input-group .form-control {
             margin-bottom: 0;
             /* La clase form-control de Bootstrap ya hace flex: 1 1 auto; */
@@ -200,14 +218,15 @@
         /* Responsividad basica. Bootstrap ya maneja la mayoría */
         @media (max-width: 600px) {
             body {
-                padding-top: 150px; 
-                align-items: flex-start; 
+                padding-top: 150px;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
+
 <body>
-    
+
     <!-- Navbar-->
     <div class="container-fluid fixed-top px-0  wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
@@ -217,27 +236,38 @@
             </div>
             <div class="col-lg-6 px-5 text-end">
                 <small>Siguenos en:</small>
-                <a class="text-body ms-3" href="https://www.facebook.com/login/?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                <a class="text-body ms-3" href="https://www.facebook.com/login/?locale=es_LA"><i
+                        class="fab fa-facebook-f"></i></a>
                 <a class="text-body ms-3" href="https://+56958007645"><i class="fab fa-whatsapp"></i></a>
-                <a class="text-body ms-3" href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                <a class="text-body ms-3" href="https://www.instagram.com/accounts/login/"><i
+                        class="fab fa-instagram"></i></a>
             </div>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
             <h1 class="fw-bold m-0" id="rock">Huerto<span class="fin">Hogar</span></h1>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="/index.html" class="nav-item nav-link">Inicio</a>
-                    <a href="/order_history.html" class="nav-item nav-link">Historial de compras</a>
                     <a href="/product.html" class="nav-item nav-link">Productos</a>
-                    <a href="/contact.html" class="nav-item nav-link">Contactos</a>
-                    
+                </div>
+                <div class="dropdown ms-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Más opciones
+                    </button>
+                    <ul class="dropdown-menu ms-2">
+                        <li><a class="dropdown-item" href="order_history.html">Historial compras</a></li>
+                        <li><a class="dropdown-item" href="contact.html">Contacto</a></li>
+                        <li><a class="dropdown-item" href="Cierre_sesion.html">Cerrar sesion</a></li>
+                    </ul>
                 </div>
             </div>
+
         </nav>
     </div>
     <!-- Fin navbar  -->
@@ -245,17 +275,18 @@
     <!-- Contenedor del Perfil -->
     <div class="profile-container-wrapper ">
         <div class="profile-card">
-            
+
             <div class="profile-header">
                 <!-- IMAGEN DE PERFIL Y BOTÓN DE FOTO -->
                 <div class="profile-photo-area">
-                    <img id="profile-picture" src="https://placehold.co/150x150/007bff/ffffff?text=U" alt="Foto de Perfil">
+                    <img id="profile-picture" src="https://placehold.co/150x150/007bff/ffffff?text=U"
+                        alt="Foto de Perfil">
                     <input type="file" id="file-input" accept="image/*" style="display: none;">
                     <button id="btn-change-photo" class="icon-button small-button photo-overlay-button">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
-                
+
                 <h2 class="mt-3" id="user-name-display">Nombre Completo del Usuario</h2>
                 <p class="text-muted mb-1" id="email-display-header">correo.ejemplo@huertohogar.cl</p>
                 <!-- Campos estéticos: Título y Bio (No editables, solo visualización) -->
@@ -263,51 +294,54 @@
 
                 <div class="edit-buttons mt-3 d-flex justify-content-center">
                     <button id="btn-edit-mode" class="icon-button"><i class="fas fa-edit"></i> Editar Perfil</button>
-                    <button id="btn-save-changes" class="icon-button hidden"><i class="fas fa-save"></i> Guardar Cambios</button>
-                    <button id="btn-cancel-edit" class="icon-button hidden" style="background-color: #6c757d;"><i class="fas fa-times"></i> Cancelar</button>
+                    <button id="btn-save-changes" class="icon-button hidden"><i class="fas fa-save"></i> Guardar
+                        Cambios</button>
+                    <button id="btn-cancel-edit" class="icon-button hidden" style="background-color: #6c757d;"><i
+                            class="fas fa-times"></i> Cancelar</button>
                 </div>
             </div>
 
             <!-- MODO DE VISUALIZACIÓN -->
             <div class="profile-details-view" id="view-mode">
                 <h4 class="mb-3">Información de la Cuenta</h4>
-                
+
                 <div class="detail-item">
                     <i class="fas fa-user icon"></i>
                     <p>Nombre:</p>
                     <span id="name-display">Nombre Completo del Usuario</span>
                 </div>
-                
+
                 <div class="detail-item">
                     <i class="fas fa-envelope icon"></i>
                     <p>Email:</p>
                     <span id="email-display">correo.ejemplo@huertohogar.cl</span>
                 </div>
-                
+
                 <div class="detail-item">
                     <i class="fas fa-map-marker-alt icon"></i>
                     <p>Región:</p>
                     <span id="region-display">Región Metropolitana</span>
                 </div>
-                
+
                 <div class="detail-item">
                     <i class="fas fa-city icon"></i>
                     <p>Comuna:</p>
                     <span id="comuna-display">Santiago</span>
                 </div>
-                
+
                 <h4 class="mt-4 mb-3"><!---Biografia---></h4>
-                <p id="bio-display" class="text-break">Una descripción sobre  intereses, profesión y habilidades en el proyecto HuertoHogar.</p>
+                <p id="bio-display" class="text-break">Una descripción sobre intereses, profesión y habilidades en el
+                    proyecto HuertoHogar.</p>
 
                 <div class="password-info mt-4">
                     <i class="fas fa-lock"></i> Nota: la contraseña es gestionada en el modo de edición.
                 </div>
             </div>
 
-            
+
             <form class="profile-details-edit" id="edit-mode" style="display: none;">
                 <h4 class="mb-3">Editar Información</h4>
-                
+
                 <div class="mb-3">
                     <label for="input-name" class="form-label">Nombre Completo *</label>
                     <input type="text" class="form-control" id="input-name" required>
@@ -317,7 +351,7 @@
                     <label for="input-email" class="form-label">Correo Electrónico *</label>
                     <input type="email" class="form-control" id="input-email" required>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="input-region" class="form-label">Región *</label>
                     <select id="input-region" class="form-select" required>
@@ -329,49 +363,51 @@
                         <option value="Araucanía">Araucanía</option>
                     </select>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="input-comuna" class="form-label">Comuna *</label>
                     <select id="input-comuna" class="form-select" required>
                         <option value="">Selecciona una comuna</option>
-                        
+
                         <optgroup label="Región Metropolitana">
                             <option value="Santiago">Santiago</option>
                             <option value="Providencia">Providencia</option>
                             <option value="Puente Alto">Puente Alto</option>
                         </optgroup>
-                        
+
                         <optgroup label="Valparaíso">
                             <option value="Valparaíso">Valparaíso</option>
                             <option value="Viña del Mar">Viña del Mar</option>
                             <option value="Quilpué">Quilpué</option>
                         </optgroup>
-                        
+
                         <optgroup label="Biobío">
                             <option value="Concepción">Concepción</option>
                             <option value="Coronel">Coronel</option>
                             <option value="Talcahuano">Talcahuano</option>
                             <option value="Nacimiento">Nacimiento</option>
                         </optgroup>
-                        
+
                         <optgroup label="Los Lagos">
                             <option value="Puerto Montt">Puerto Montt</option>
                         </optgroup>
-                        
+
                         <optgroup label="Araucanía">
                             <option value="Villarrica">Villarrica</option>
                         </optgroup>
                     </select>
                 </div>
-                
-              
+
+
                 <h4 class="mt-4 mb-3">Cambiar Contraseña (Opcional)</h4>
 
                 <div class="mb-3">
                     <label for="input-new-password" class="form-label">Nueva Contraseña</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="input-new-password" placeholder="Mínimo 6 caracteres">
-                        <button type="button" class="btn btn-outline-secondary toggle-password-btn" data-target="input-new-password">
+                        <input type="password" class="form-control" id="input-new-password"
+                            placeholder="Mínimo 6 caracteres">
+                        <button type="button" class="btn btn-outline-secondary toggle-password-btn"
+                            data-target="input-new-password">
                             <i class="fa fa-eye"></i>
                         </button>
                     </div>
@@ -381,7 +417,8 @@
                     <label for="input-confirm-password" class="form-label">Confirmar Nueva Contraseña</label>
                     <div class="input-group">
                         <input type="password" class="form-control" id="input-confirm-password">
-                        <button type="button" class="btn btn-outline-secondary toggle-password-btn" data-target="input-confirm-password">
+                        <button type="button" class="btn btn-outline-secondary toggle-password-btn"
+                            data-target="input-confirm-password">
                             <i class="fa fa-eye"></i>
                         </button>
                     </div>
@@ -392,7 +429,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -414,11 +451,11 @@
             const userNameDisplay = document.getElementById('user-name-display');
 
             // Campos del registro
-            const regionDisplay = document.getElementById('region-display'); 
+            const regionDisplay = document.getElementById('region-display');
             const comunaDisplay = document.getElementById('comuna-display');
 
             // Campos estéticos
-            const titleDisplay = document.getElementById('user-title-display'); 
+            const titleDisplay = document.getElementById('user-title-display');
             const bioDisplay = document.getElementById('bio-display');
 
             // Elementos de input del formulario
@@ -442,7 +479,7 @@
                 const storedEmail = localStorage.getItem('user_email');
                 const storedRegion = localStorage.getItem('user_region');
                 const storedComuna = localStorage.getItem('user_comuna');
-                const storedPhoto = localStorage.getItem('profilePicUrl'); 
+                const storedPhoto = localStorage.getItem('profilePicUrl');
 
                 if (storedName && storedEmail) {
                     // Si hay datos almacenados (vienen del registro o edición anterior)
@@ -450,15 +487,15 @@
                     userNameDisplay.textContent = storedName;
                     emailDisplay.textContent = storedEmail;
                     emailDisplayHeader.textContent = storedEmail;
-                    
+
                     // Carga de Región y Comuna (claves coincidentes con el registro)
                     regionDisplay.textContent = storedRegion || 'No especificada';
                     comunaDisplay.textContent = storedComuna || 'No especificada';
-                    
+
                     // Carga títulos estéticos
                     titleDisplay.textContent = localStorage.getItem('user_title') || 'Miembro HuertoHogar';
                     bioDisplay.textContent = localStorage.getItem('user_bio') || 'Bienvenido a HuertoHogar. Edita tu perfil para personalizar.';
-                    
+
                     if (storedPhoto) {
                         profilePicture.src = storedPhoto;
                     }
@@ -468,10 +505,10 @@
                     userNameDisplay.textContent = "Usuario Desconocido";
                     emailDisplay.textContent = "Inicia sesión para ver tu perfil";
                     emailDisplayHeader.textContent = "inicia@sesion.cl";
-                    
+
                     regionDisplay.textContent = "---";
                     comunaDisplay.textContent = "---";
-                    
+
                     titleDisplay.textContent = "Visitante";
                     bioDisplay.textContent = "Debes registrarte o iniciar sesión para ver y editar tus datos.";
                     profilePicture.src = "https://placehold.co/150x150/6c757d/ffffff?text=?";
@@ -496,11 +533,11 @@
                 // Preselecciona el valor en los selectores
                 inputRegion.value = data.region;
                 inputComuna.value = data.comuna;
-                
+
                 // Limpia campos de contraseña al entrar en modo edición (seguridad)
                 inputNewPassword.value = '';
                 inputConfirmPassword.value = '';
-                
+
                 // Asegura que los campos de contraseña estén ocultos (type=password) al cargar
                 inputNewPassword.type = 'password';
                 inputConfirmPassword.type = 'password';
@@ -558,9 +595,9 @@
                         alert('La nueva contraseña y la confirmación no coinciden.');
                         return;
                     }
-                    
+
                     // (Clave única en localStorage para la contraseña) 
-                    localStorage.setItem('user_password', newPassword); 
+                    localStorage.setItem('user_password', newPassword);
                 }
 
                 // Obtiene nuevos valores del perfil
@@ -568,12 +605,12 @@
                 const newEmail = inputEmail.value;
                 const newRegion = inputRegion.value;
                 const newComuna = inputComuna.value;
-                
+
                 // estoy guardando los nuevos datos del perfil en localstorage claves por separado
                 localStorage.setItem('user_email', newEmail);
                 localStorage.setItem('user_region', newRegion);
                 localStorage.setItem('user_comuna', newComuna);
-                
+
                 // Aca actualizo el objeto 'usuarioActual' también
                 let usuarioActual = JSON.parse(localStorage.getItem('usuarioActual')) || {};
                 usuarioActual.nombre = newName;
@@ -585,46 +622,46 @@
                 }
                 localStorage.setItem('usuarioActual', JSON.stringify(usuarioActual));
 
-               
+
                 let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-                
+
                 // Encuentra y actualiza el usuario en la lista maestra por email
-                const userIndex = usuarios.findIndex(u => u.email === newEmail); 
-                
+                const userIndex = usuarios.findIndex(u => u.email === newEmail);
+
                 if (userIndex !== -1) {
                     // Si encontra el usuario, actualiza todos sus campos, incluida la contraseña
                     usuarios[userIndex].nombre = newName;
                     usuarios[userIndex].email = newEmail;
                     usuarios[userIndex].region = newRegion;
                     usuarios[userIndex].comuna = newComuna;
-                    
+
                     if (newPassword) {
                         usuarios[userIndex].password = newPassword;
                     }
-                    
+
                     // esa funcion permite guardar la lista maestra actualizada (Esto arregla el login despues de editar)
                     localStorage.setItem('usuarios', JSON.stringify(usuarios));
                 }
-               
+
 
                 // Aplicando a la vista
                 nameDisplay.textContent = newName;
                 userNameDisplay.textContent = newName;
                 emailDisplay.textContent = newEmail;
                 emailDisplayHeader.textContent = newEmail;
-                
+
                 regionDisplay.textContent = newRegion;
                 comunaDisplay.textContent = newComuna;
-                
+
                 // Si el título o la bio no son editables, mantenemos el último valor
-                localStorage.setItem('user_title', titleDisplay.textContent); 
+                localStorage.setItem('user_title', titleDisplay.textContent);
                 localStorage.setItem('user_bio', bioDisplay.textContent);
-                
+
                 toggleEditMode(false);
                 alert('Perfil actualizado.' + (newPassword ? ' ¡Y contraseña cambiada! Ahora puedes acceder con la nueva.' : ''));
             });
 
-        
+
 
             // Al hacer clic en el botón 'Cambiar Foto', esa accion activa el input de archivo
             btnChangePhoto.addEventListener('click', () => {
@@ -645,18 +682,18 @@
                     reader.onload = (e) => {
                         const photoUrl = e.target.result;
                         profilePicture.src = photoUrl;
-                        
+
                         // Funcion para guardar la foto de perfil en localstorage con la clave 'profilePicUrl' 
                         localStorage.setItem('profilePicUrl', photoUrl);
-                        
+
                         alert('Foto cargada exitosamente. Recuerda que la foto se guardará en tu memoria local hasta que borres el caché.');
                     };
                     reader.readAsDataURL(file);
                 }
             });
-          
+
             // En esta seccion manejamos la logica de visibilidad de la contraseña 
-            
+
             const togglePasswordButtons = document.querySelectorAll('.toggle-password-btn');
 
             togglePasswordButtons.forEach(button => {
@@ -680,4 +717,5 @@
         });
     </script>
 </body>
+
 </html>

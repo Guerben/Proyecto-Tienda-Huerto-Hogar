@@ -75,14 +75,14 @@ class OrderHistory {
         if (loadingMessage) {
             loadingMessage.style.display = 'none';
         }
-        
+
         // Aca aplicamos el filtro a filteredOrders antes de verificar la longitud
         const validOrders = this.filteredOrders.filter(order => order.order && order.order.items && order.order.items.length > 0);
 
         if (validOrders.length === 0) {
             ordersList.innerHTML = '';
             // Muestra el mensaje de "No tienes pedidos aún" si no hay órdenes válidas
-            noOrdersMessage.style.display = 'block'; 
+            noOrdersMessage.style.display = 'block';
             return;
         }
 
@@ -251,9 +251,9 @@ class OrderHistory {
 
         if (window.cart) {
             window.cart.clearCart();
-            
+
             // Usamos order.order.items en lugar de order.items
-            order.order.items.forEach(item => { 
+            order.order.items.forEach(item => {
                 // Se asume que item tiene la estructura necesaria para addItem
                 window.cart.addItem({
                     id: item.id,
@@ -265,7 +265,7 @@ class OrderHistory {
             });
 
             this.showMessage('Productos agregados al carrito', 'success');
-            
+
             const orderDetailModalElement = document.getElementById('orderDetailModal');
             if (orderDetailModalElement) {
                 const modalInstance = bootstrap.Modal.getInstance(orderDetailModalElement);
@@ -273,7 +273,7 @@ class OrderHistory {
                     modalInstance.hide();
                 }
             }
-            
+
             setTimeout(() => {
                 window.location.href = 'checkout.html';
             }, 1000);
@@ -346,7 +346,7 @@ class OrderHistory {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Aseguramos que la clase se inicie y esté disponible globalmente
-    window.orderHistory = new OrderHistory(); 
+    window.orderHistory = new OrderHistory();
 });

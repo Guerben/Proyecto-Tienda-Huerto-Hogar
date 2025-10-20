@@ -13,7 +13,7 @@ class SearchSystem {
     // Cargamos los productos
     loadProducts() {
         this.products = [
-           
+
             {
                 id: 'tomates-cherry',
                 name: 'Tomates Cherry',
@@ -237,9 +237,9 @@ class SearchSystem {
         }
     }
 
-    
+
     goToProduct(product) {
-      
+
         window.location.href = `/product_detail.html?id=${product.id}`;
     }
     performSearch() {
@@ -247,7 +247,7 @@ class SearchSystem {
         if (searchInput) {
             const query = searchInput.value.trim();
             if (query.length >= 2) {
-             
+
                 window.location.href = `/search-results.html?q=${encodeURIComponent(query)}`;
             }
         }
@@ -270,7 +270,7 @@ class SearchSystem {
 }
 
 // Inicializa el sistema de búsqueda
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     window.searchSystem = new SearchSystem();
 });
 

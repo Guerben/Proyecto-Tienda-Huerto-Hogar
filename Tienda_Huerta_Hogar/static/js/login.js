@@ -20,14 +20,14 @@ loginForm.addEventListener('submit', (e) => {
 
     // Guarda el objeto completo del usuario logueado
     localStorage.setItem('usuarioActual', JSON.stringify(validuser));
-    
-   
+
+
     localStorage.setItem('user_name', validuser.nombre);
     localStorage.setItem('user_email', validuser.email);
-    localStorage.setItem('user_password', validuser.password); 
+    localStorage.setItem('user_password', validuser.password);
     localStorage.setItem('user_region', validuser.region);
     localStorage.setItem('user_comuna', validuser.comuna);
-    
+
     // Si no existen, inicializara datos estéticos (título/bio) con un valor por defecto
     if (!localStorage.getItem('user_title')) {
         localStorage.setItem('user_title', 'Miembro Activo HuertoHogar');
@@ -35,8 +35,8 @@ loginForm.addEventListener('submit', (e) => {
     if (!localStorage.getItem('user_bio')) {
         localStorage.setItem('user_bio', '¡Qué bueno estar de vuelta!');
     }
-   
-    
+
+
     alert('Login exitoso!');
     alert(`Bienvenido ${validuser.nombre}!`);
     window.location.href = '/index.html';
@@ -55,13 +55,13 @@ if (logoutBtn) {
         localStorage.removeItem('user_comuna');
         localStorage.removeItem('user_title');
         localStorage.removeItem('user_bio');
-        localStorage.removeItem('profilePicUrl'); 
-        
+        localStorage.removeItem('profilePicUrl');
+
         window.location.href = '/login.html';
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializa todos los tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -86,30 +86,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
                 }
-                
+
             });
         });
 
         // Cierra navbar al hacer clic fuera de él
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const isClickInsideNav = navbarCollapse.contains(event.target);
             const isClickOnToggler = navbarToggler.contains(event.target);
-            
+
             if (!isClickInsideNav && !isClickOnToggler && navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
             }
         });
     }
 
-   
-    
+
+
     // Valida en tiempo real del email
     const emailInput = document.querySelector('#email');
     if (emailInput) {
-        emailInput.addEventListener('blur', function() {
+        emailInput.addEventListener('blur', function () {
             const email = this.value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
+
             if (email && !emailRegex.test(email)) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'Por favor, ingresa un email válido');
@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Valida en tiempo real de la contraseña
     const passwordInput = document.querySelector('#password');
     if (passwordInput) {
-        passwordInput.addEventListener('blur', function() {
+        passwordInput.addEventListener('blur', function () {
             const password = this.value;
-            
+
             if (password && password.length < 6) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'La contraseña debe tener al menos 6 caracteres');
@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Muestra error en un campo
 function showFieldError(field, message) {
     hideFieldError(field); // Limpiar errores previos
-    
+
     const errorDiv = document.createElement('div');
     errorDiv.className = 'invalid-feedback';
     errorDiv.textContent = message;
-    
+
     field.parentNode.appendChild(errorDiv);
 }
 
@@ -162,7 +162,7 @@ function hideFieldError(field) {
 function togglePasswordVisibility() {
     const passwordInput = document.querySelector('#password');
     const toggleBtn = document.querySelector('#togglePassword');
-    
+
     if (passwordInput && toggleBtn) {
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';

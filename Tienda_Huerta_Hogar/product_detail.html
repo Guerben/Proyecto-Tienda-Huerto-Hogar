@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Producto - HuertoHogar</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -28,8 +29,10 @@
             </div>
             <div class="col-lg-6 px-5 text-end">
                 <small>Seguinos en:</small>
-                <a class="text-body ms-3" href="https://www.facebook.com/login/?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
-                <a class="text-body ms-3" href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                <a class="text-body ms-3" href="https://www.facebook.com/login/?locale=es_LA"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="text-body ms-3" href="https://www.instagram.com/accounts/login/"><i
+                        class="fab fa-instagram"></i></a>
                 <a class="text-body ms-3" href="https://+56958007645"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
@@ -38,7 +41,8 @@
             <a href="/index.html" class="navbar-brand ms-4 ms-lg-0">
                 <h1 class="fw-bold text-primary m-0">Huerto<span class="text-secondary">Hogar</span></h1>
             </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -51,20 +55,26 @@
                 <!--Busqueda-->
                 <div class="d-flex ms-3">
                     <div class="search-container position-relative">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar productos..." style="width: 200px;">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar productos..."
+                            style="width: 200px;">
                         <button class="btn btn-outline-primary position-absolute end-0 top-0" id="searchBtn">
                             <i class="fa fa-search"></i>
                         </button>
-                        <div id="searchResults" class="search-results position-absolute w-100 bg-white border rounded shadow-lg" style="top: 100%; z-index: 1000; display: none;"></div>
+                        <div id="searchResults"
+                            class="search-results position-absolute w-100 bg-white border rounded shadow-lg"
+                            style="top: 100%; z-index: 1000; display: none;"></div>
                     </div>
                     <!--Login-->
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="/login.html">
                         <small class="fa fa-user text-body bg-white "></small>
                     </a>
                     <!--carrito de compra-->
-                    <a class="btn-sm-square bg-white rounded-circle ms-3 cart-icon position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3 cart-icon position-relative" href="#"
+                        data-bs-toggle="modal" data-bs-target="#cartModal">
                         <small class="fa fa-shopping-bag text-body"></small>
-                        <span id="cart-counter" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none; font-size: 0.7rem;">0</span>
+                        <span id="cart-counter"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="display: none; font-size: 0.7rem;">0</span>
                     </a>
                 </div>
             </div>
@@ -80,12 +90,16 @@
                 <div class="col-lg-6 pt-5">
                     <div class="product-images">
                         <div class="main-image pt-5 mb-3">
-                            <img id="mainProductImage" src="" alt="Producto" class="img-fluid rounded shadow" style="width: 100%; height: 400px; object-fit: cover;">
+                            <img id="mainProductImage" src="" alt="Producto" class="img-fluid rounded shadow"
+                                style="width: 100%; height: 400px; object-fit: cover;">
                         </div>
                         <div class="thumbnail-images d-flex gap-2">
-                            <img id="thumb1" src="" alt="Thumbnail 1" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
-                            <img id="thumb2" src="" alt="Thumbnail 2" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
-                            <img id="thumb3" src="" alt="Thumbnail 3" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
+                            <img id="thumb1" src="" alt="Thumbnail 1" class="img-thumbnail"
+                                style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
+                            <img id="thumb2" src="" alt="Thumbnail 2" class="img-thumbnail"
+                                style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
+                            <img id="thumb3" src="" alt="Thumbnail 3" class="img-thumbnail"
+                                style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;">
                         </div>
                     </div>
                 </div>
@@ -104,7 +118,7 @@
                                 <span class="ms-2">(4.8) 124 reseñas</span>
                             </div>
                         </div>
-                        
+
                         <div class="price-section mb-4">
                             <div class="d-flex align-items-center">
                                 <span id="currentPrice" class="display-5 text-primary fw-bold me-3"></span>
@@ -132,7 +146,8 @@
                             <h5>Cantidad</h5>
                             <div class="d-flex align-items-center">
                                 <button class="btn btn-outline-secondary" id="decreaseQty">-</button>
-                                <input type="number" id="quantity" class="form-control text-center mx-2" value="1" min="1" max="10" style="width: 80px;">
+                                <input type="number" id="quantity" class="form-control text-center mx-2" value="1"
+                                    min="1" max="10" style="width: 80px;">
                                 <button class="btn btn-outline-secondary" id="increaseQty">+</button>
                             </div>
                         </div>
@@ -215,9 +230,12 @@
         </div>
     </div>
 
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <script src="/static/lib/wow/wow.js"></script>
     <script src="/static/lib/easing/easing.min.js"></script>
@@ -229,4 +247,5 @@
     <script src="/static/js/product_detail.js"></script>
     <script src="/static/js/search.js"></script>
 </body>
+
 </html>

@@ -17,7 +17,7 @@ class ProductDetail {
     loadProductFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
-        
+
         if (productId) {
             this.product = this.getProductById(productId);
             if (this.product) {
@@ -333,7 +333,7 @@ class ProductDetail {
                 image: '/static/img/miel_organica.png',
                 images: ['/static/img/miel_organica.png', '/static/img/miel_organica.png', '/static/img/miel_organica.png'],
                 description: 'Miel de abeja 100% orgánica y pura, recolectada directamente de nuestra huerta. Endulzante natural y saludable.',
-                category: 'lacteos', 
+                category: 'lacteos',
                 stock: 50,
                 rating: 4.9,
                 reviews: 150
@@ -384,7 +384,7 @@ class ProductDetail {
                 thumb.alt = `${this.product.name} ${index + 1}`;
                 // Marcamos el thumbnail principal como activo
                 if (index === 0) {
-                     thumb.classList.add('active');
+                    thumb.classList.add('active');
                 } else {
                     thumb.classList.remove('active');
                 }
@@ -431,10 +431,10 @@ class ProductDetail {
             .slice(0, 4);
 
         if (relatedProducts.length === 0) {
-             // Ocultara sección si no hay relacionados, o mostrara un mensaje
-             // Decidimos dejarla con un mensaje simple 
-             container.innerHTML = '<p class="text-center text-muted">No hay más productos en esta categoría.</p>';
-             return;
+            // Ocultara sección si no hay relacionados, o mostrara un mensaje
+            // Decidimos dejarla con un mensaje simple 
+            container.innerHTML = '<p class="text-center text-muted">No hay más productos en esta categoría.</p>';
+            return;
         }
 
         container.innerHTML = relatedProducts.map(product => `
@@ -503,7 +503,7 @@ class ProductDetail {
         document.querySelectorAll('[id^="thumb"]').forEach(thumb => {
             thumb.addEventListener('click', (e) => {
                 document.getElementById('mainProductImage').src = e.target.src;
-                
+
                 document.querySelectorAll('[id^="thumb"]').forEach(t => t.classList.remove('active'));
                 e.target.classList.add('active');
             });
@@ -529,21 +529,21 @@ class ProductDetail {
 
         // Agrega la cantidad especificada
         if (window.cart && this.quantity > 0) {
-             for (let i = 0; i < this.quantity; i++) {
-                 
-                 window.cart.addItem(this.product); 
-             }
+            for (let i = 0; i < this.quantity; i++) {
+
+                window.cart.addItem(this.product);
+            }
         }
-        
+
         // Pintamos mensaje de éxito
         this.showSuccessMessage(`${this.product.name} agregado al carrito (${this.quantity} unidades)`);
     }
 
-   
+
     buyNow() {
         if (!this.product) return;
 
-        
+
         this.addToCart();
 
         // Redirige al checkout
@@ -559,13 +559,13 @@ class ProductDetail {
             container.style.zIndex = '9999';
             document.body.appendChild(container);
         }
-        
+
         const toast = document.createElement('div');
         toast.className = 'toast align-items-center text-white bg-success border-0';
         toast.setAttribute('role', 'alert');
         toast.setAttribute('aria-live', 'assertive');
         toast.setAttribute('aria-atomic', 'true');
-        
+
         toast.innerHTML = `
             <div class="d-flex">
                 <div class="toast-body">
@@ -587,8 +587,8 @@ class ProductDetail {
 }
 
 // Inicializara cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     if (typeof bootstrap !== 'undefined') {
         new ProductDetail();
     } else {

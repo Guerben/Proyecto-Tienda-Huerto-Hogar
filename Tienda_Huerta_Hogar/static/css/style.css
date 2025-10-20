@@ -1,20 +1,22 @@
-
 :root {
     --primary: #3CB815;
     --secondary: #F65005;
     --light: #F7F8FC;
     --dark: #111111;
 }
+
 .text-green {
     color: var(--primary);
 }
+
 .text-green-secondary {
     color: var(--secondary);
 }
+
 .btn-green {
-    background-color:#2E8B57;
+    background-color: #2E8B57;
     color: #FFFFFF;
-    
+
 }
 
 .back-to-top {
@@ -88,13 +90,13 @@
 .btn-square,
 .btn-sm-square,
 .btn-lg-square {
-    padding:0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: normal;
 
-   
+
 }
 
 
@@ -117,7 +119,7 @@
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
-    
+
 }
 
 .navbar .navbar-nav .nav-link {
@@ -131,7 +133,8 @@
 .navbar .navbar-nav .nav-link.active {
     color: var(--dark);
 }
-.breadcrumb-item{
+
+.breadcrumb-item {
     font-size: 16px;
     color: #555555;
 }
@@ -224,7 +227,7 @@
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;

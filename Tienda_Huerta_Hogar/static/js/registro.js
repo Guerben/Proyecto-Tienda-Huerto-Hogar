@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('signupForm').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -27,24 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
         usuarios.push(formData);
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
-        
-        
+
+
         localStorage.setItem('user_email', formData.email);
-        localStorage.setItem('user_password', formData.password); 
+        localStorage.setItem('user_password', formData.password);
         localStorage.setItem('user_region', formData.region);
         localStorage.setItem('user_comuna', formData.comuna);
-        
+
         // Inicializara los datos estéticos (título/bio) con un valor por defecto
         localStorage.setItem('user_title', 'Nuevo Miembro HuertoHogar');
         localStorage.setItem('user_bio', '¡Acabo de unirme a la comunidad!');
-        
+
         // Guardara  el objeto completo para la sesión de login
         localStorage.setItem('usuarioActual', JSON.stringify(formData));
-     
-        
+
+
         // Mostrando mensaje de éxito
         showFlashMessage('Registro exitoso! Bienvenido a HuertoHogar. Iniciando sesión...', 'success');
-        
+
         // Limpiando formulario
         this.reset();
         submitButton.classList.remove('loading');
@@ -73,13 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
         flashContainer.appendChild(flashMessage);
-        
+
         setTimeout(() => {
             flashMessage.remove();
         }, 5000);
     }
 
-    
+
     // Inicializando todos los tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -104,16 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
                 }
-               
+
                 // event.preventDefault() 
             });
         });
 
         // Cerrando navbar al haciendo clic fuera de él
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const isClickInsideNav = navbarCollapse.contains(event.target);
             const isClickOnToggler = navbarToggler.contains(event.target);
-            
+
             if (!isClickInsideNav && !isClickOnToggler && navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
             }
@@ -124,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación en tiempo real del nombre
     const nombreInput = document.querySelector('#nombre');
     if (nombreInput) {
-        nombreInput.addEventListener('blur', function() {
+        nombreInput.addEventListener('blur', function () {
             const nombre = this.value.trim();
-            
+
             if (nombre && nombre.length < 2) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'El nombre debe tener al menos 2 caracteres');
@@ -140,10 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación en tiempo real del email
     const emailInput = document.querySelector('#email');
     if (emailInput) {
-        emailInput.addEventListener('blur', function() {
+        emailInput.addEventListener('blur', function () {
             const email = this.value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
+
             if (email && !emailRegex.test(email)) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'Por favor, ingresa un email válido');
@@ -157,10 +157,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación en tiempo real del email de confirmación
     const confirmEmailInput = document.querySelector('#confirmEmail');
     if (confirmEmailInput) {
-        confirmEmailInput.addEventListener('blur', function() {
+        confirmEmailInput.addEventListener('blur', function () {
             const email = document.querySelector('#email').value;
             const confirmEmail = this.value.trim();
-            
+
             if (confirmEmail && email !== confirmEmail) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'Los emails no coinciden');
@@ -174,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación en tiempo real de la contraseña
     const passwordInput = document.querySelector('#password');
     if (passwordInput) {
-        passwordInput.addEventListener('blur', function() {
+        passwordInput.addEventListener('blur', function () {
             const password = this.value;
-            
+
             if (password && password.length < 6) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'La contraseña debe tener al menos 6 caracteres');
@@ -190,10 +190,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Validación en tiempo real de la confirmación de contraseña
     const confirmPasswordInput = document.querySelector('#confirmPassword');
     if (confirmPasswordInput) {
-        confirmPasswordInput.addEventListener('blur', function() {
+        confirmPasswordInput.addEventListener('blur', function () {
             const password = document.querySelector('#password').value;
             const confirmPassword = this.value;
-            
+
             if (confirmPassword && password !== confirmPassword) {
                 this.classList.add('is-invalid');
                 showFieldError(this, 'Las contraseñas no coinciden');
@@ -209,11 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mostrando error en un campo
     function showFieldError(field, message) {
         hideFieldError(field); // Para limpiar errores previos
-        
+
         const errorDiv = document.createElement('div');
         errorDiv.className = 'invalid-feedback';
         errorDiv.textContent = message;
-        
+
         field.parentNode.appendChild(errorDiv);
     }
 
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Efecto de carga en botón de envío
     const submitButton = document.querySelector('button[type="submit"]');
     if (submitButton) {
-        submitButton.addEventListener('click', function() {
+        submitButton.addEventListener('click', function () {
             if (this.classList.contains('loading')) {
                 this.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Registrando...';
             } else {
@@ -321,11 +321,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Efecto de focus en inputs
     const formInputs = document.querySelectorAll('.form-control, .form-select');
     formInputs.forEach(input => {
-        input.addEventListener('focus', function() {
+        input.addEventListener('focus', function () {
             this.parentNode.classList.add('focused');
         });
-        
-        input.addEventListener('blur', function() {
+
+        input.addEventListener('blur', function () {
             if (!this.value) {
                 this.parentNode.classList.remove('focused');
             }

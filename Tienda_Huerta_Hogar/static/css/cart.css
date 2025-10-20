@@ -1,19 +1,22 @@
-
 :root {
     --primary: #3CB815;
     --secondary: #F65005;
     --light: #F7F8FC;
     --dark: #111111;
 }
+
 .text-primary {
     color: var(--primary) !important;
 }
+
 .text-secondary {
     color: var(--secondary) !important;
 }
+
 .bg-primary {
     background-color: var(--primary) !important;
 }
+
 .bg-secondary {
     background-color: var(--secondary) !important;
 }
@@ -60,11 +63,11 @@
 /* Modal del carrito */
 #cartModal .modal-content {
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 #cartModal .modal-header {
-    background: linear-gradient(135deg,  #3CB815, #F65005);
+    background: linear-gradient(135deg, #3CB815, #F65005);
     color: white;
     border-radius: 15px 15px 0 0;
     border: none;
@@ -83,7 +86,7 @@
 
 .cart-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item-image {
@@ -144,7 +147,7 @@
 
 /* Botón de checkout */
 #checkout-btn {
-    background: linear-gradient(135deg,  #3CB815, #F65005);
+    background: linear-gradient(135deg, #3CB815, #F65005);
     border: none;
     border-radius: 25px;
     padding: 12px 30px;
@@ -179,7 +182,7 @@
 /* Toast notifications */
 .toast {
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Animaciones */
@@ -188,6 +191,7 @@
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -198,6 +202,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -216,22 +221,22 @@
     #cartModal .modal-dialog {
         margin: 0.5rem;
     }
-    
+
     .cart-item {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .cart-item .d-flex {
         justify-content: center;
         margin-top: 1rem;
     }
-    
+
     #cartModal .modal-footer .d-flex {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     #checkout-btn {
         width: 100%;
     }
@@ -244,7 +249,7 @@
 
 .product-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para el spinner de carga */
@@ -268,20 +273,25 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* ESTILOS PARA CHECKOUT */
 
 .checkout-form .card {
     border: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
 .checkout-form .card-header {
-    background: linear-gradient(135deg,  #3CB815, #F65005);
+    background: linear-gradient(135deg, #3CB815, #F65005);
     color: white;
     border-radius: 10px 10px 0 0 !important;
     border: none;
@@ -295,10 +305,10 @@
 }
 
 .shipping-options .form-check:hover {
-    border-color:  #3CB815,;
+    border-color: #3CB815, ;
 }
 
-.shipping-options .form-check-input:checked + .form-check-label {
+.shipping-options .form-check-input:checked+.form-check-label {
     color: #2E8B57;
 }
 
@@ -323,7 +333,7 @@
     position: sticky;
     top: 2rem;
     border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .order-summary .card-header {
@@ -338,12 +348,12 @@
 .order-card {
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .order-card .card-body {
@@ -366,7 +376,7 @@
     max-height: 400px;
     overflow-y: auto;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .search-result-item {
@@ -432,7 +442,7 @@
 
 .action-buttons .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -441,19 +451,19 @@
     .search-container input {
         width: 150px !important;
     }
-    
+
     .order-card .row {
         text-align: center;
     }
-    
+
     .order-card .col-md-3:last-child {
         margin-top: 1rem;
     }
-    
+
     .checkout-form .row {
         margin-bottom: 1rem;
     }
-    
+
     .action-buttons .btn {
         width: 100%;
         margin-bottom: 0.5rem;
@@ -467,6 +477,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -486,7 +497,7 @@
 .modal-content {
     border-radius: 15px;
     border: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modal-header {
@@ -502,12 +513,14 @@
 /* ESTILOS PARA FORMULARIOS  */
 
 .form-control:focus {
-    border-color:  #3CB815;
-    box-shadow: 0 0 0 0.2rem #2E8B57;;
+    border-color: #3CB815;
+    box-shadow: 0 0 0 0.2rem #2E8B57;
+    ;
 }
 
 .form-select:focus {
-    border-color: #3CB815;;
+    border-color: #3CB815;
+    ;
     box-shadow: 0 0 0 0.2rem #2E8B57;
 }
 

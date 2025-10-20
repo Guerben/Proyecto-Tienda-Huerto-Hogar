@@ -131,7 +131,7 @@ class CheckoutSystem {
         if (validCoupons[code]) {
             const coupon = validCoupons[code];
             this.couponCode = code;
-            
+
             if (coupon.type === 'shipping') {
                 this.shippingCost = 0;
                 this.showCouponMessage(`¡Cupón aplicado! ${coupon.description}`, 'success');
@@ -144,7 +144,7 @@ class CheckoutSystem {
                 }
                 this.showCouponMessage(`¡Cupón aplicado! ${coupon.description}`, 'success');
             }
-            
+
             this.updateOrderSummary();
         } else {
             this.showCouponMessage('Código de cupón inválido', 'danger');
@@ -154,7 +154,7 @@ class CheckoutSystem {
     showCouponMessage(message, type) {
         const couponMessage = document.getElementById('couponMessage');
         couponMessage.innerHTML = `<div class="alert alert-${type} alert-sm mb-0">${message}</div>`;
-        
+
         setTimeout(() => {
             couponMessage.innerHTML = '';
         }, 5000);
@@ -163,7 +163,7 @@ class CheckoutSystem {
     togglePaymentForm() {
         const selectedPayment = document.querySelector('input[name="payment"]:checked');
         const cardForm = document.getElementById('cardForm');
-        
+
         if (selectedPayment.value === 'credit') {
             cardForm.style.display = 'block';
         } else {
@@ -191,7 +191,7 @@ class CheckoutSystem {
         }
 
         const orderData = this.collectOrderData();
-        
+
         const btn = document.getElementById('placeOrderBtn');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i>Procesando...';
@@ -286,7 +286,7 @@ class CheckoutSystem {
     processOrder(orderData) {
         const orders = JSON.parse(localStorage.getItem('huertohogar_orders')) || [];
         const orderId = 'ORD-' + Date.now();
-        
+
         const order = {
             id: orderId,
             date: new Date().toISOString(),
@@ -295,7 +295,7 @@ class CheckoutSystem {
         };
 
         // Usamos el metodo unshift() para poner una orden nueva al inicio de la lista
-        orders.unshift(order); 
+        orders.unshift(order);
         localStorage.setItem('huertohogar_orders', JSON.stringify(orders));
 
         this.cart.clearCart();
@@ -350,6 +350,6 @@ class CheckoutSystem {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     new CheckoutSystem();
 });

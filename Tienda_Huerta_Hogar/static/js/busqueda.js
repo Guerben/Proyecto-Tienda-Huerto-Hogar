@@ -1,6 +1,6 @@
 //comienzo de la función de búsqueda
-    
-    // Lista de productos 
+
+// Lista de productos 
 const productos = [
     { id: "FR001", nombre: "Manzanas Fuji", categoria: "Frutas Frescas" },
     { id: "FR002", nombre: "Naranjas Valencia", categoria: "Frutas Frescas" },
@@ -17,7 +17,7 @@ const productos = [
 function searchProductos(query) {
     const resultados = productos.filter(producto => {
         return producto.nombre.toLowerCase().includes(query.toLowerCase()) ||
-               producto.categoria.toLowerCase().includes(query.toLowerCase());
+            producto.categoria.toLowerCase().includes(query.toLowerCase());
     });
 
     mostrarResultados(resultados);
@@ -57,7 +57,7 @@ function toggleSearch() {
 }
 
 // Event listener para realizar la búsqueda en tiempo real
-document.getElementById('search-input').addEventListener('input', function() {
+document.getElementById('search-input').addEventListener('input', function () {
     searchProductos(this.value);
 });
 // fin de la función de búsqueda
